@@ -147,3 +147,25 @@ const person = {
   ]
 }
 ```
+
+## Nested Component
+
+comments in the previous example is where we can have nested components
+can use it by haing <Comment /> inside of a Post's render method
+
+Render all comments by
+```js
+class Post extends Component {
+  render() {
+    let allComments = [
+      <Comment body={this.props.comments[0]} />,
+      <Comment body={this.props.comments[1]} />,
+      <Comment body={this.props.comments[2]} />
+    ]
+    /// rest of content .....
+  }
+}
+```
+
+I really don't like this way, is there a forloop for me to use instead of doing this?
+For rendering an article with lots of comments, this process is not scalable
