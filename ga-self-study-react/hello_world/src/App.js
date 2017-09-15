@@ -11,8 +11,9 @@ class Hello extends Component {
     // make sure to return some UI
     return (
       <div>
-        <h1>Hello World!</h1>
-        <p>It is a wonderful world</p>
+        <h1>Hello {this.props.name}</h1>
+        <p>I am guess you are {this.props.age} years old</p>
+        <p>Your favorite animals are: {this.props.animals[0]}</p>
       </div>
 
     )

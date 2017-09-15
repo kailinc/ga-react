@@ -69,4 +69,81 @@ Use JSX to define contents of node
     for you to follow the process
 -   If you function does more than one thing, you should break it down so it calls
     upon other functions, componenets, files to finish the task at hand
--
+
+## Props
+
+### Component Data with Props
+
+Props Example
+
+```html
+<div id="app"></app>
+```
+
+React File
+```js
+class CallKitty extends React.Component {
+  render() {
+    return (
+      <h1>Here {this.props.catName}!</h1>
+    )
+  }
+}
+/*
+ * Render the above component into the div #app passes Meowser into CallKitty component
+ * this will set the value of props.catName to be Meowser
+ */
+React.render(<CallKitty catName={"Meowser"}/>, document.getElementById('app'));
+```
+This is probably one of the ways we pass in data from AJAX requests to React apps
+
+### Multiple Props
+
+this is the same process as single props
+
+```js
+ReactDOM.render(
+  <Hello name={"Nick"} age={23}/>,
+  document.getElementById('root')
+)
+```
+
+### Multiple Props passed from an Object
+
+lets pass down an object instead of each value as an attribute
+
+Person Object to pass down
+
+```js
+var person = {
+  personName: "Nick",
+  personAge: 24
+}
+```
+
+how to handle object rendering
+
+```js
+ReactDOM.render(
+  <Hello
+  name={person.personName}
+  age={person.personAge}
+  />,
+  document.getElementById('root')
+)
+```
+
+handling object with nested data structure
+
+example: person
+```js
+const person = {
+  personName: "Nick",
+  personAge: 24,
+  favorites: [
+    "capybaras",
+    "Tigers",
+    "Dinosaurs count!"
+  ]
+}
+```

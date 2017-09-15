@@ -10,7 +10,21 @@ import Hello from './App.js';
 // this is where the rendering beginds
 // <Hello /> is a way to write components
 // this will render at the div with the id of root
+
+const person = {
+  personName: 'Nick',
+  personAge: 23,
+  favorites: [
+    "capybaras",
+    "Tigers",
+    "Dinosaurs count!"
+  ]
+}
+
 ReactDOM.render(
-  <Hello />,
+  <Hello
+  name={person.personName}
+  age={person.personAge}
+  animals={person.favorites}/>,
   document.getElementById('root')
 )
