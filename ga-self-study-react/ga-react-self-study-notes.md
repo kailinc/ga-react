@@ -169,3 +169,12 @@ class Post extends Component {
 
 I really don't like this way, is there a forloop for me to use instead of doing this?
 For rendering an article with lots of comments, this process is not scalable
+
+
+## State
+
+props represent data that will be same every time our component is rendered
+state = mutable attributes
+state must be object
+no direct mutation
+use setState()
