@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ListItem from './ListItem';
 
-class App extends Component {
+class MyList extends Component {
   render() {
+    let todoItems = this.props.theList.map( (item, index) =>
+      <ListItem doThis={item} key={index} />
+    )
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>Things I should stop procastinating</h1>
+        <ul>
+          {todoItems}
+        </ul>
       </div>
     );
   }
 }
 
-export default App;
+export default MyList;
