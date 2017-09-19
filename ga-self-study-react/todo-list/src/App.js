@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListItem from './ListItem';
+import ToDoList from './ToDoList'
 
 class MyList extends Component {
   constructor (props) {
@@ -22,6 +23,7 @@ class MyList extends Component {
 
   // function to get current value of input field and set state
   newItemChange (e) {
+    this.inputEntry = ''
     this.setState({
       newItem: e.target.value
     })
@@ -41,17 +43,14 @@ class MyList extends Component {
     // this is a function that loops through the state.toDoItemArray
     // for every item in the list calls ListItem component with doThis as the current item
     // sets the key to be the index of the item in the array
-    let todoItems = this.state.toDoItemArray.map( (item, index) =>
-      <ListItem doThis={item} key={index} />
-    )
 
     return (
       <div>
         <h1>Things I should stop procastinating</h1>
         <ul>
-          {todoItems}
+          <ToDoList toDoItemArray={this.state.toDoItemArray}/>
         </ul>
-        <input type="text" placeholder="Add a new item here" onChange={(e) => this.newItemChange(e)}></input>
+        <input type="text" ref="newItem" placeholder="Add a new item here" onChange={(e) => this.newItemChange(e)}></input>
         <button onClick={(e) => this.addItem(e)}>Add it!</button>
         <button onClick={(e) => this.clearList(e)}>Clear List</button>
       </div>

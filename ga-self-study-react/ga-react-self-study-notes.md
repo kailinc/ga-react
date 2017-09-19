@@ -213,3 +213,59 @@ export const addThree = num => num + 3;
 // In the magical land of another file aka rainbows.js
 import {addTwo, addThree } from './unicorn.js'
 ```
+
+## Functional Component
+
+functional component just takes props as argument and returns JSX
+
+Example
+```js
+// Component Version
+class Name extends React.Component {
+  render() {
+    return(
+      <div>
+        Name: {this.props.firstname} {this.props.lastName}
+      </div>
+    )
+  }
+}
+
+// Functional Component Version
+// written in fat arrow function sytanx
+const Name = props => (
+  <div>
+    Name: {props.firstName} {props.lastName}
+  </div>
+)
+```
+
+Example
+Rendering a Fruit table with Functional Component
+```js
+// data that is passed into functional component
+// array of arrays
+const data = [
+  ['apple', 'banana', 'cherry'],
+  ['grape', 'pear', 'orange'],
+  ['plum', 'watermelon', 'canteloupe']
+]
+
+const FruitTable = props => (
+  <table style={{ borderSpacing: 20, borderStyle: 'solid' }}>
+    <tbody>
+    // renders the row
+      {props.data.map((fruitList, index) => (
+        <tr key={index}>
+        // renders each column in a row
+          {fruitList.map((fruit, i) => (
+            <td key={i}>
+              {fruit}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)
+```
