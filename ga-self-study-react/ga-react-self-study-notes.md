@@ -287,7 +287,56 @@ Methods:
 this.myFunctionName = this.myFunctionName.bind(this)
 ```
 
-2.
--   componentWillMount(): used for server rendering
--   componentDidMount(): called if component updates from shouldComponentUpdate
--   render(): return a React Element
+2.  componentWillMount(): used for server rendering
+    - called before component is rendered to the document
+    - use it for server rendering
+    - should not used for server request cuz of async
+    - component maybe rendered before request is done
+
+3.  componentDidMount(): called if component updates from shouldComponentUpdate
+    - use it for network requests (AJAX)
+    - called once after component is rendered to DOM
+
+```js
+componentDidMount() {
+  fetch('http://api.com/${this.props.id}') // goes to this link with the id of whatever prop is passed down
+    .then(response => response.json()) // renders the response to be in json
+    .then(data => this.setState(prevState => ({ data }))) // whatever data you get you set it to be the new state
+}
+```
+
+Observation:
+-   This seems to be a get request cuz did not pass in new data to update or create, destroy request will not give back data.
+
+Question: Is fetch a built in JS tool or is it something from react?
+
+     - can put event listeners at componentDidMount()
+     - remove the event listeners at componentWillUnmount()
+Example
+```js
+class FruitTable extends React.component{
+  // adds the event listener of dragover
+  // triggers handleDragStart when there is a drag
+  componentDidMont() {
+    document.addEventListener('dragover', this.handleDragStart)
+  }
+  // removes the event listener of dragover and function of handleDragStart
+  componentWillUnmount() {
+    document.removeEventListener('dragover', this.handleDragStart)
+  }
+
+  // function just setStates 'dragging': true
+  // not sure what this prevState is doing
+  handleDragStart(e) {
+    e.preventDefault()
+    this.setState(prevState => ({
+      dragging: true
+    }))
+  }
+
+}
+```
+
+4.  render(): return a React Element
+    -   use it to render changes in state or props
+    -   should not create change in state, props here
