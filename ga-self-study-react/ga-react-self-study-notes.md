@@ -269,3 +269,25 @@ const FruitTable = props => (
   </table>
 )
 ```
+
+
+## Component Lifecycle
+
+Componenets can be created (mounted), updated, removed (unmounted)
+ComponentDidMount is called after component is rendered to DOM
+componentWillUnmount is called before component is removed from the DOM
+
+### Initializing/ Mounting
+
+Methods:
+1.  constructor(): initializes the component with states and bind methods
+     bind methods so that this is refering to the component and not what called the
+     component
+```js
+this.myFunctionName = this.myFunctionName.bind(this)
+```
+
+2.
+-   componentWillMount(): used for server rendering
+-   componentDidMount(): called if component updates from shouldComponentUpdate
+-   render(): return a React Element
