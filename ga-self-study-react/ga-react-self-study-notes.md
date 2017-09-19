@@ -178,3 +178,38 @@ state = mutable attributes
 state must be object
 no direct mutation
 use setState()
+
+## ES6
+
+### Const and Let
+
+let is for variables that can be changed
+const is for variables that can't be changed entirely
+
+example
+```js
+const speaker = {
+  price: 10,
+  color: white
+}
+
+speaker.price = 20
+
+// speaker = {
+//   price: 20,
+//   color: white
+// }
+```
+
+### Literals
+
+can export multiple modules from a file
+
+```js
+// in unicorn.js
+export const addTwo = num => num + 2;
+export const addThree = num => num + 3;
+
+// In the magical land of another file aka rainbows.js
+import {addTwo, addThree } from './unicorn.js'
+```
