@@ -404,4 +404,49 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
 
   you can use Immutable.js from FB that will have methods for chaning data without you
   thinking about ways to change data correctly
+
+  ## React Router
+
+  you can write js programs that go back and forth between pages
+  window.history.back() window.history.forward()
+
+  ### Browser History Mechanics
+
+  page is a whole HTML file that browser downloads and displays
+
+  routing defines what content is displayed when someone visits a certain URL
+  there can be many pages for the same site
+
+  SPA, change the content without sending users to diff web pages, the notion of
+  back and forth is lost
+  If user is on SPA, press back, they are completely off the site
+
+  Solution:
+    .pushState()
+    .replaceState()
+  so when user "goes" to a diff part of the page, invoke pushState()
+  this will save custom browser history
+  can use React Router for taking care of back and forth in sites
+
+  ### React Router
+
+  React Router is a 3rd party library to make it easy for us to route URLs
+  load diff component on the same page as user navigate to different url
+  changes to url, renders a new react component
+  match url to component
+
+  ```js
+  // Traditional Method - calling the server
+  <a href="https://blog.AboutPage.com">About tab</a>
+  <a href="https://blog.MainPage.com">Main Blog Tab</a>
+
+  // Using React Router
+  render() {
+    return(
+      <Route path="about" component={AboutPage}/>
+      <Route path="mainBlog" component={BlogPage}>
+    )
+  }
+  ```
+
   
