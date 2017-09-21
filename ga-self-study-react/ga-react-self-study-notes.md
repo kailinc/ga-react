@@ -548,3 +548,44 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
     ...
   });
   ```
+
+  ### $.AJAX vs Fetch()
+
+  AJAX could be used instead of Fetch(). One reason Fetch() is preferred over AJAX
+  is because to use AJAX you would have to incorporate the whole jQuery Library
+  to use AJAX. You are using only a small portion of jQuery to send AJAX requests.
+  In the stand point of optimization and reducing file size, it would make more
+  sense to use Fetch(). If optimization does not matter to you then by all means
+  use AJAX from jQuery.
+
+  ### Why You Shouldn't use Fetch
+
+  Fetch is a low level API, this means that you have to be very explicit in sending
+  any type of AJAX request. This means more typing. // EWWW
+
+  Wrong way to do POST Request with Fetch()
+  ```js
+  fetch('/user', {
+    method: 'POST',
+    body: {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    }
+  });
+  ```
+  Correct way to do POST Request with Fetch()
+  ```js
+  fetch('/user', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+  });
+  ```
+
+  Conclusion: It is probably best to use a AJAX library.
+  Article: https://medium.com/@shahata/why-i-wont-be-using-fetch-api-in-my-apps-6900e6c6fe78
