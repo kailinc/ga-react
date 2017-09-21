@@ -449,4 +449,50 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
   }
   ```
 
-  
+  ## Introduction to APIs
+
+  DOM and jQuery are examples of API // WHAAT?
+
+  There are 2 major types of serailized data formats
+
+  ### JSON
+
+  JavaScript Object Notation is light weight, easy to read, quick to parse
+
+  ```json
+  {
+    "users": [
+      {"name": "Wonder Woman", "id": 0},
+      {"name": "Black Panther", "id": 1},
+      {"name": "Batgirl", "id": 2}
+    ]
+  }
+  ```
+
+  ### XML
+
+  eXtensible Markup Language
+  is fat, ugly, cumbersome to parse
+  is used becauze of legacy websites
+
+  ```xml
+    <users>
+    <user id="0">
+      <name>Wonder Woman</name>
+    </user>
+    <user id="1">
+      <name>Black Panther</name>
+    </user>
+    <user id="2">
+      <name>Batgirl</name>
+    </user>
+  ```
+
+  ### Authentication
+
+  many API are free to use, but require API key
+  this is to prevent fraud, regulate usage, prevent abuse
+
+  important to not push API keys to a public GitHub Repo
+
+  keep it in .env 
