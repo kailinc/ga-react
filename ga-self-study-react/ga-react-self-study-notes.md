@@ -513,3 +513,38 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
       console.log('An error occured while parsign! ', ex)
     })
   ```
+
+  ### More on Fetch() from MDN
+
+  Syntax
+  ```
+  Promise<Response> fetch(input[, init]);
+  ```
+  input = this is the url you want to fetch
+
+  init (this is optional)
+  this is passed as an object
+    1. method: can put request methods (GET, POST)
+    2. headers: specify what type of data is used
+    3. body: for updating, creating
+    4. mode
+    5. credentials: for tokens
+    6.
+
+  Example of GET Request
+  ```js
+  var myImage = document.querySelector('img');
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'image/jpeg');
+
+  var myInit = { method: 'GET',
+                 headers: myHeaders,
+                 mode: 'cors',
+                 cache: 'default' };
+
+  var myRequest = new Request('flowers.jpg');
+
+  fetch(myRequest, myInit).then(function(response) {
+    ...
+  });
+  ```
