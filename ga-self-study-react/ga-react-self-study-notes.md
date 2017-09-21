@@ -357,4 +357,51 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
 
   component can update state
   can't update prop
-  define state at the highest component you can 
+  define state at the highest component you can
+
+  ## Immutable Data Types
+
+  state and props are mutable
+  don't change either directly cuz React might not be aware of change and
+  rerendering may not happen
+
+  React is returning a fresh copy of the state with new ref with updated data when
+  use setState
+
+
+  Inccorect way to change state (directly)
+  ```js
+  handleChange(e) {
+    this.state.myPieceOfState = e.target.value;
+  }
+  ```
+
+  Correct way to change state
+  ```js
+  handleChange(event) {
+    this.setState(prevState => ({
+      myPieceOfState: event.target.value
+    }))
+  }
+  ```
+
+  you don't want to mutate the array
+  with pop() you will mutate an array
+  you would have to use map, filter, and reduce cuz it returns modified copies of the
+  array and don't mutate the originals
+
+  example
+  ```js
+  const newArray = anArray.filter((item, index, originalArray) => index !== originalArray.length - 1 )
+  ```
+
+  you can use object.assign for this too
+
+  ```js
+  const newObject = Object.assign({}, anObject, { foo: 'barrrr' })
+  ```
+  keys from anObject and keys from the 3rd argu will be copied to a new object (newObject)
+
+  you can use Immutable.js from FB that will have methods for chaning data without you
+  thinking about ways to change data correctly
+  
