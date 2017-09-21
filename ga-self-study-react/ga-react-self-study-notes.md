@@ -351,3 +351,10 @@ componentWillReceiveProps(newProps)
 shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
   used for performance optimizations
   probably for testing
+
+
+  ## Unidirectional Flow
+
+  component can update state
+  can't update prop
+  define state at the highest component you can 
