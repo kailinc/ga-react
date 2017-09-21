@@ -495,4 +495,21 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
 
   important to not push API keys to a public GitHub Repo
 
-  keep it in .env 
+  keep it in .env
+
+  ### Fetch()
+
+  Fetch() lets us build SPA that don;t require refreshes
+
+  example
+  ```js
+  let issAPI = 'http://api.open-notify.org/astros.json'; // this is the link to send api to
+  fetch(issAPI) // this is the fetch request
+    .then((response) => { // if the requese is successful, turn the response into json format
+      return response.json()
+    }).then((json) => { // this is success handling for request
+      console.log('JSON from the ISS ', json)
+    }).catch((ex) => { // error handling for request
+      console.log('An error occured while parsign! ', ex)
+    })
+  ```
