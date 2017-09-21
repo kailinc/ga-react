@@ -9,7 +9,17 @@ class Post extends Component {
   constructor (props) {
     super()
     this.state = {
-      body: props.body
+        title: 'The Magnificent Coder',
+        author: [
+          'MudaBish',
+          'BrudaBish',
+          'TudaBish'
+        ],
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        comments: [
+          'much wow',
+          'soo cool'
+        ]
     }
   }
 
@@ -27,13 +37,13 @@ class Post extends Component {
   }
   render() {
     let allAuthor = [
-      <Author author={this.props.author[0]} />,
-      <Author author={this.props.author[1]} />,
-      <Author author={this.props.author[2]} />
+      <Author author={this.state.author[0]} />,
+      <Author author={this.state.author[1]} />,
+      <Author author={this.state.author[2]} />
     ]
     return (
       <div>
-        <h1>{this.props.title}</h1>
+        <h1>{this.state.title}</h1>
         <h3>by {allAuthor}</h3>
         <p>{this.state.body}</p>
         <form>
@@ -41,7 +51,7 @@ class Post extends Component {
           <button onClick={(e) => this.changeBody(e)}>Edit Body</button>
         </form>
         <h3>Comments</h3>
-          <Comment body={this.props.comments[0]}/>
+          <Comment body={this.state.comments[0]}/>
       </div>
     );
   }
