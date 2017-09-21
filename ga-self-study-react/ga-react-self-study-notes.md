@@ -312,7 +312,9 @@ Question: Is fetch a built in JS tool or is it something from react?
 
      - can put event listeners at componentDidMount()
      - remove the event listeners at componentWillUnmount()
+
 Example
+
 ```js
 class FruitTable extends React.component{
   // adds the event listener of dragover
@@ -340,3 +342,12 @@ class FruitTable extends React.component{
 4.  render(): return a React Element
     -   use it to render changes in state or props
     -   should not create change in state, props here
+
+
+componentWillReceiveProps(newProps)
+  this is called when components receives new props
+  change state of component based on props Here
+
+shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
+  used for performance optimizations
+  probably for testing
