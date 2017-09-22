@@ -1,16 +1,69 @@
 import React, { Component } from 'react';
 
 class About extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      city: null,
+      weather: null
+    }
+  }
+
+  getZipCode(e) {
+    e.preventDefault()
+    // console.log('the value of input from handleChange() is ', e.target.value)
+    let zipCode = e.target.value.toString()
+    let link = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&appid=052f26926ae9784c2d677ca7bc5dec98'
+    fetch(link)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          city: data.name,
+          weather: data.main
+        })
+      })
+      .then( () => {
+        let modTemp = KelvinToCel(this.state.weather.temp)
+        let maxTemp = KelvinToCel(this.state.weather.temp_max)
+        let minTemp = KelvinToCel(this.state.weather.temp_min)
+        this.setState({
+          weather: {
+            temp: modTemp,
+            temp_max: maxTemp,
+            temp_min: minTemp
+          }
+        })
+      })
+      .catch((error) => console.log('this is error ', error ))
+
+  }
+
   render() {
+    if (this.state.city) {
+      return(
+        <div>
+          <h1>About Me</h1>
+          <p>{this.state.city}</p>
+          <p>The weather in {this.state.city} is {this.state.weather.temp} C. The high is {this.state.weather.temp_max}. The low is {this.state.weather.temp_min} C. </p>
+          <form>
+            Zip Code: <input type="number" onChange={(e) => this.getZipCode(e)}></input>
+          </form>
+        </div>)
+    }
     return(
       <div>
         <h1>About Me</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacus est, ullamcorper id vulputate id, sagittis et metus. Pellentesque consectetur arcu in sollicitudin sagittis. Duis rutrum lectus at tristique convallis. Nulla nunc lacus, ullamcorper in velit eget, pellentesque varius turpis. In sit amet arcu vel diam bibendum tincidunt. Quisque sollicitudin, ipsum nec condimentum malesuada, ipsum urna pharetra neque, a bibendum arcu sapien quis ante. Curabitur viverra sodales odio eget congue. Morbi mattis rutrum tincidunt. Vivamus posuere, eros id consectetur fermentum, risus mi commodo justo, ac vestibulum libero mi quis mi. Aenean lobortis vestibulum ante, ac mollis ipsum efficitur id. Praesent eget egestas magna.
-        </p>
+        <p>Enter a Zip Code to get Weather Data</p>
+        <form>
+          Zip Code: <input type="number" onChange={(e) => this.getZipCode(e)}></input>
+        </form>
       </div>
     )
   }
+}
+
+const KelvinToCel = function (temp) {
+  return parseInt(temp - 273.15)
 }
 
 export default About;
