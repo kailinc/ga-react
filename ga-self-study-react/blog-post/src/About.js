@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GoogleMaps from './GoogleMaps';
 
 class About extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class About extends Component {
           <form>
             Zip Code: <input type="number" onChange={(e) => this.getZipCode(e)}></input>
           </form>
+          <GoogleMaps center={this.state.center}/>
         </div>)
     }
     return(
