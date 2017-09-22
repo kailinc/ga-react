@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import GoogleMaps from './GoogleMaps';
+import GoogleApiWrapper from './GoogleMaps';
 
 class About extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class About extends Component {
           center: data.coord
         })
       })
-      .then( () => {
+      .then(() => {
         let modTemp = KelvinToCel(this.state.weather.temp)
         let maxTemp = KelvinToCel(this.state.weather.temp_max)
         let minTemp = KelvinToCel(this.state.weather.temp_min)
@@ -48,6 +48,7 @@ class About extends Component {
           <h1>About Me</h1>
           <p>{this.state.city}</p>
           <p>The weather in {this.state.city} is {this.state.weather.temp} C. The high is {this.state.weather.temp_max}. The low is {this.state.weather.temp_min} C. </p>
+          <GoogleApiWrapper google={this.state.coord}/>
           <form>
             Zip Code: <input type="number" onChange={(e) => this.getZipCode(e)}></input>
           </form>
