@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import GoogleMaps from './GoogleMaps';
+// import GoogleMaps from './GoogleMaps';
 
 class About extends Component {
   constructor(props) {
     super(props)
     this.state = {
       city: null,
-      weather: null
+      weather: null,
+      center: null
     }
   }
 
@@ -20,7 +21,8 @@ class About extends Component {
       .then((data) => {
         this.setState({
           city: data.name,
-          weather: data.main
+          weather: data.main,
+          center: data.coord
         })
       })
       .then( () => {
@@ -49,7 +51,6 @@ class About extends Component {
           <form>
             Zip Code: <input type="number" onChange={(e) => this.getZipCode(e)}></input>
           </form>
-          <GoogleMaps center={this.state.center}/>
         </div>)
     }
     return(
