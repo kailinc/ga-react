@@ -589,3 +589,93 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
 
   Conclusion: It is probably best to use a AJAX library.
   Article: https://medium.com/@shahata/why-i-wont-be-using-fetch-api-in-my-apps-6900e6c6fe78
+
+  ## Imperative and Declarative Programming
+
+  ### Imperative
+
+  Imperative coding = outline what is needed, write it out step by step
+
+  ```
+  ask everyone in the room to line up
+  for every person in the line
+     ask each person to come to the front of the room
+    ask each person to then speak their name
+  ```
+
+  Example
+  ```js
+  let room = ['Superman', 'Black Panther', 'Wonder Woman', 'Iron Man']
+
+  for (let i = 0; i < room.length; i++) {
+    let person = room[i]
+    console.log("Imperative way: " + person)
+  }
+  ```
+
+  imperative programing focuses on why, how, where, and when your code executes
+
+  ### Declarative
+
+  Example
+
+  ```js
+  let room = ['Superman', 'Black Panther', 'Wonder Woman', 'Iron Man']
+
+  room.forEach( (person) => {
+    console.log('Declarative way: ' + person)
+  })
+  ```
+  forEach is a method in declarative programming
+  the method only cares about what you want
+
+  Example:
+  User gets a discount by entering 'TREATYOSELF2017' into cart's coupon box input box
+
+  Items
+  ```js
+  let items = [
+    {
+      title: 'Breath of the Wild',
+      price: 49.99
+    },
+    {
+      title: 'The Minish Cap',
+      price: 29.99
+    },
+    {
+      title: 'Twilight Princess',
+      price: 49.99
+    }
+  ]
+  ```
+
+  Imperative Way
+
+  ```js
+  let discountedItems = [];
+  for (let i = 0; i < items.length; i++) {
+    discountedItems.push({
+      title: items[i].title,
+      price: items[i].price * 0.5
+    });
+  }
+  ```
+
+  Declarative Way
+  ```js
+  let discountedItems = items.map((item) => {
+    return {
+      title: item.title,
+      price: item.price * 0.5
+    }
+  })
+  ```
+  Conclusion
+
+  Imperative is found in object oriented programming where you focus on a line by
+  line execution path working with objects
+
+  My Thoughts:
+  - Seems like the only difference between Declarative way and Imperative way is just
+   that Declarative way uses less code, lines, or letters.
