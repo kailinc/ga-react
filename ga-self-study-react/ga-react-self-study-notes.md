@@ -679,3 +679,121 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
   My Thoughts:
   - Seems like the only difference between Declarative way and Imperative way is just
    that Declarative way uses less code, lines, or letters.
+
+
+   ## Heroku
+
+   You can deploy a React applicatin to the internet with Heroku. It is popular among Web Developers and
+   provides five free applications to every user.
+
+   Heroku is a cloud platform that allows developers to deploy applications to the internet. You can
+   deploy any type of application (Node.js, Ruby, Java, PHP)
+
+   Heroku CLI (Command Line Interface) lets you deploy and develop through the command line.
+
+   To login
+   ```terminal
+   heroku login
+   ```
+
+   You should see the following
+    ```Terminal
+    Enter your Heroku credentials.
+    Email:
+    Password: (it is hidden when you type it).
+    Authentication successful
+    ```
+
+    To deploy a React app to heroku you can use create-react-app-buildpack
+
+    create-react-app-buildpack is a set of scripts that Heroku will use to read your
+    React.js code and rebuild it to be hosted on the web.
+
+    type the following to create a react app on heroku using create-react-app-buildpack
+    ```
+    heroku create-react-app app-name --buildpack https://github.com/user/create-react-app-buildpack.git
+    ```
+
+    Use git to add all files and commit changes
+    ```terminal
+    git add -A
+    git commit -m 'I need a challenge'
+    ```
+
+    WARNING WARNING
+    You only want to do git add -A the first time. This command adds all the file
+    in the repository and send it to github. If you do this later, it will add hidden files.
+
+    Why is this bad?
+    Developers usually use hidden files to store valuale, sensitive information like API keys.
+    There are web scrappers looking for these valuable information and abuse it.
+
+    Command to push your app to heroku
+    ```terminal
+    git push heroku master
+    ```
+
+    Command to go to your hosted app
+    ```terminal
+    git push heroku master
+    ```
+
+    Deploying your Project Live
+
+    ### Route clean URLs with React Router
+
+    React Router uses hash-based URLS
+    ex:
+    ```
+    https://example.com/index.html#/users/me/edit
+    ```
+    Wnat you really want
+    ```
+    https://example.com/users/me/edit
+    ```
+
+    To do accomplish this, you need to configure web server for clean browserHistory
+    ```json
+    {
+      "root": "build/",
+      "clean_urls": false,
+      "routes": {
+        "/**": "index.html"
+      }
+
+    }
+    ```
+
+    ### Getting around CORS with Heroku Proxy
+
+    CORS Proxy is a service that allows developers to access resources from other websites
+    without having to own that website
+
+    What do you mean?
+
+    For example, if you want to embed an img of a cat on https://acatwebsite.com/ Some owners
+    of a website want to make sure cat images can only be accessed through browser.
+
+    CORS = Cross Origin Resource Sharing. This is a web standard that website use to make sure things
+    accesssing them (like you getting the cat picture) are safe.
+
+    When you go to website where only one side is using CORS on the backend, you'll get an error
+    saying that you aren't allowed to access the resource.
+
+    If you use CORS proxy, you don't need to set up CORS. CORS proxy does it for you.
+
+    Set up:
+    1. Add "proxies" to static.json
+        ```json
+        {
+          "proxies": {
+            "/api/": {
+              "origin": "${API_URL}"
+            }
+          }
+        }
+        ```
+    2. Point UI app to specific backend API using CLI
+      ```terminal
+      heroku config:set API_URL="https://api.example.com"
+      ```
