@@ -764,7 +764,7 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
     }
     ```
 
-    ### Getting around CORS with Heroku Proxy
+  ### Getting around CORS with Heroku Proxy
 
     CORS Proxy is a service that allows developers to access resources from other websites
     without having to own that website
@@ -797,3 +797,6 @@ shouldComponentUpdate(), componentWillUpdate(), componentDidUpdate()
       ```terminal
       heroku config:set API_URL="https://api.example.com"
       ```
+
+  ## Further Reading
+  [React BuildPack]('https://github.com/mars/create-react-app-buildpack#routing-clean-urls')
