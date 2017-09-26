@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
+import Message from './Message';
+import Aside from './Aside';
 
 class Game extends Component {
   constructor() {
@@ -15,7 +17,17 @@ class Game extends Component {
   render() {
     return(
       <div>
-        <Board board={this.state.board}/>
+        <div>
+        </div>
+          <Aside />
+        <div>
+            <Message />
+            <Board board={this.state.board}/>
+        </div>
+        <div>
+          <Aside />
+        </div>
+
       </div>
     )
   }
