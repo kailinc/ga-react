@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 class Square extends Component {
+  constructor() {
+    super()
+  }
+
+
   render() {
     return(
-      <button>{this.props.value}</button>
+      <button onClick={this.props.onClick}>{this.props.value}</button>
     )
   }
 }

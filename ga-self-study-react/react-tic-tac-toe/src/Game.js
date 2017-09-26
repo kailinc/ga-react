@@ -12,6 +12,11 @@ class Game extends Component {
       xWin: 0,
       yWin: 0
     }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    console.log('hello')
   }
 
   render() {
@@ -22,7 +27,7 @@ class Game extends Component {
           <Aside />
         <div>
             <Message />
-            <Board board={this.state.board} onClick={this.handleClick}/>
+            <Board board={this.state.board} onMarkSpot={this.handleClick}/>
         </div>
         <div>
           <Aside />
