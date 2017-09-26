@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Square from './Square';
 
 class Board extends Component {
+
   renderSquare(i) {
     return(
-      <Square value={this.props.board[i]} onClick={this.props.onMarkSpot}/>
+      <Square value={this.props.board[i]} onClick={() => this.props.onMarkSpot(i)}/>
     )
   }
 

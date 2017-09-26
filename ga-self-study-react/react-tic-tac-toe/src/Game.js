@@ -3,6 +3,8 @@ import Board from './Board';
 import Message from './Message';
 import Aside from './Aside';
 
+let players = [ 'X', 'O']
+
 class Game extends Component {
   constructor() {
     super()
@@ -14,9 +16,17 @@ class Game extends Component {
     }
     this.handleClick = this.handleClick.bind(this)
   }
-
-  handleClick() {
-    console.log('hello')
+  // Over Archeiving Function to handle operations related with clicking on game board
+  // updatesboard, check wins/loses/ties
+  handleClick(i) {
+    const spot = this.state.board[i]
+    if (!spot) {
+      let newBoard = updateBoard(this.state.board, i, this.state.turn)
+      this.setState({
+        board: newBoard,
+        turn: this.state.turn + 1
+      })
+    }
   }
 
   render() {
@@ -36,7 +46,12 @@ class Game extends Component {
       </div>
     )
   }
+}
 
+// function to updateBoard with a nifty trick
+const updateBoard = function (board, spot, turn) {
+  board[spot] = players[turn % 2]
+  return board
 }
 
 export default Game;
