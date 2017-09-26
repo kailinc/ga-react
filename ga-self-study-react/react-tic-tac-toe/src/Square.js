@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 class Square extends Component {
   render() {
     return(
-      <div>
-        <p>This is Square</p>
-      </div>
+      <button>{this.props.value}</button>
     )
   }
 }
