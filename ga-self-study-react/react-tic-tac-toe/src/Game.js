@@ -7,7 +7,7 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [1,2,3,4,5,6,7,8,9],
+      board: [null, null, null, null, null, null, null, null, null],
       turn: 0,
       xWin: 0,
       yWin: 0
@@ -22,7 +22,7 @@ class Game extends Component {
           <Aside />
         <div>
             <Message />
-            <Board board={this.state.board}/>
+            <Board board={this.state.board} onClick={this.handleClick}/>
         </div>
         <div>
           <Aside />
