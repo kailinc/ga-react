@@ -89,7 +89,7 @@ const updateBoard = function (board, spot, turn) {
 }
 
 // function to check Game Status
-const checkWin = function(board, turn) {
+const checkWin = function(board, spot, turn) {
   let winCombo = [
     [0,1,2],
     [3,4,5],
