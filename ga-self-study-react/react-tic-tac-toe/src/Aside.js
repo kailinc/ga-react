@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Aside extends Component {
   render() {
     return(
-      <div>This is Aside</div>
+      <div>
+        {this.props.player}: {this.props.win}
+      </div>
     )
   }
 }

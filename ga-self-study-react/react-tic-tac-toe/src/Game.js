@@ -52,14 +52,14 @@ class Game extends Component {
         <div>
           <div>
           </div>
-            <Aside />
+            <Aside win={this.state.x} player='X'/>
           <div>
               <Message />
               <Board board={this.state.board} onMarkSpot={this.handleClick}/>
               <ReplayBtn handleClick={this.replay}/>
           </div>
           <div>
-            <Aside />
+            <Aside win={this.state.y} player='O'/>
           </div>
       </div>
       )
@@ -68,13 +68,13 @@ class Game extends Component {
       <div>
         <div>
         </div>
-          <Aside />
+          <Aside win={this.state.x} player='X'/>
         <div>
             <Message />
             <Board board={this.state.board} onMarkSpot={this.handleClick}/>
         </div>
         <div>
-          <Aside />
+          <Aside win={this.state.y} player='O'/>
         </div>
 
       </div>
