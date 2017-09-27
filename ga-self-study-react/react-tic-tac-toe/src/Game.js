@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Board from './Board';
 import Message from './Message';
 import Aside from './Aside';
+import ReplayBtn from './ReplayBtn';
 
 let players = [ 'x', 'o']
 
@@ -15,6 +16,7 @@ class Game extends Component {
       y: 0
     }
     this.handleClick = this.handleClick.bind(this)
+    this.replay = this.replay.bind(this)
   }
   // Over Archeiving Function to handle operations related with clicking on game board
   // updatesboard, check wins/loses/ties
@@ -33,13 +35,35 @@ class Game extends Component {
           turn: 0,
           winner: this.state[winner] + 1
         })
-      } else {
-        console.log('no winner')
       }
     }
   }
 
+  replay() {
+    this.setState({
+      board: [null, null, null,null, null, null,null, null, null],
+      turn: 0
+    })
+  }
+
   render() {
+    if (this.state.turn === 9) {
+      return (
+        <div>
+          <div>
+          </div>
+            <Aside />
+          <div>
+              <Message />
+              <Board board={this.state.board} onMarkSpot={this.handleClick}/>
+              <ReplayBtn handleClick={this.replay}/>
+          </div>
+          <div>
+            <Aside />
+          </div>
+      </div>
+      )
+    }
     return(
       <div>
         <div>
