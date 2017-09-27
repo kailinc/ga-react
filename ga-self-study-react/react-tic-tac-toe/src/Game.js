@@ -26,6 +26,12 @@ class Game extends Component {
         board: newBoard,
         turn: this.state.turn + 1
       })
+      // console.log(checkWin(this.state.board, i, this.state.turn))
+      if (checkWin(this.state.board,i, this.state.turn)) {
+        console.log('we have a winner')
+      } else {
+        console.log('no winner')
+      }
     }
   }
 
@@ -52,6 +58,27 @@ class Game extends Component {
 const updateBoard = function (board, spot, turn) {
   board[spot] = players[turn % 2]
   return board
+}
+
+// function to check Game Status
+const checkWin = function(board, turn) {
+  let winCombo = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+  ]
+  // return(board[winCombo[0][0]])
+  for (let i = 0; i < winCombo.length; i++) {
+    if (board[winCombo[i][0]] === board[winCombo[i][1]] &&  board[winCombo[i][1]] === board[winCombo[i][2]] &&  board[winCombo[i][2]] === players[turn % 2]) {
+      return true
+    }
+  }
+  return false
 }
 
 export default Game;
