@@ -3,7 +3,7 @@ import Board from './Board';
 import Message from './Message';
 import Aside from './Aside';
 
-let players = [ 'X', 'O']
+let players = [ 'x', 'o']
 
 class Game extends Component {
   constructor() {
@@ -11,8 +11,8 @@ class Game extends Component {
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
       turn: 0,
-      xWin: 0,
-      yWin: 0
+      x: 1,
+      y: 0
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -26,9 +26,13 @@ class Game extends Component {
         board: newBoard,
         turn: this.state.turn + 1
       })
-      // console.log(checkWin(this.state.board, i, this.state.turn))
       if (checkWin(this.state.board,i, this.state.turn)) {
-        console.log('we have a winner')
+        let winner = players[this.state.turn % 2]
+        this.setState({
+          board: [null, null, null,null, null, null,null, null, null],
+          turn: 0,
+          winner: this.state[winner] + 1
+        })
       } else {
         console.log('no winner')
       }
