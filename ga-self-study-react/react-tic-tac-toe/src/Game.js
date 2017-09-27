@@ -13,7 +13,7 @@ class Game extends Component {
       board: [null, null, null, null, null, null, null, null, null],
       turn: 0,
       x: 1,
-      y: 0
+      o: 0
     }
     this.handleClick = this.handleClick.bind(this)
     this.replay = this.replay.bind(this)
@@ -23,17 +23,24 @@ class Game extends Component {
   handleClick(i) {
     const spot = this.state.board[i]
     if (!spot) {
-      let newBoard = updateBoard(this.state.board, i, this.state.turn)
       this.setState({
-        board: newBoard,
+        board: updateBoard(this.state.board, i, this.state.turn),
         turn: this.state.turn + 1
       })
       if (checkWin(this.state.board,i, this.state.turn)) {
         let winner = players[this.state.turn % 2]
+        if (winner === 'x') {
+          this.setState({
+            x: this.state.x + 1
+          })
+        } else {
+          this.setState({
+            o: this.state.o + 1
+          })
+        }
         this.setState({
           board: [null, null, null,null, null, null,null, null, null],
-          turn: 0,
-          winner: this.state[winner] + 1
+          turn: 0
         })
       }
     }
@@ -59,7 +66,7 @@ class Game extends Component {
               <ReplayBtn handleClick={this.replay}/>
           </div>
           <div>
-            <Aside win={this.state.y} player='O'/>
+            <Aside win={this.state.o} player='O'/>
           </div>
       </div>
       )
@@ -74,7 +81,7 @@ class Game extends Component {
             <Board board={this.state.board} onMarkSpot={this.handleClick}/>
         </div>
         <div>
-          <Aside win={this.state.y} player='O'/>
+          <Aside win={this.state.o} player='O'/>
         </div>
 
       </div>
