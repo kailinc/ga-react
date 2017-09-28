@@ -64,23 +64,6 @@ class Game extends Component {
   }
 
   render() {
-    if (this.state.turn === 9) {
-      return (
-        <div>
-          <div>
-          </div>
-            <Aside win={this.state.x} player='X'/>
-          <div>
-              <Message msg={this.state.msg}/>
-              <Board board={this.state.board} onMarkSpot={this.handleClick}/>
-              <ReplayBtn handleClick={this.replay}/>
-          </div>
-          <div>
-            <Aside win={this.state.o} player='O'/>
-          </div>
-      </div>
-      )
-    }
     return(
       <div>
         <div>
@@ -89,6 +72,7 @@ class Game extends Component {
         <div>
             <Message msg={this.state.msg}/>
             <Board board={this.state.board} onMarkSpot={this.handleClick}/>
+            <ReplayBtn handleClick={this.replay}/>
         </div>
         <div>
           <Aside win={this.state.o} player='O'/>
