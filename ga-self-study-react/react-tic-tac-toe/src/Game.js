@@ -23,14 +23,16 @@ class Game extends Component {
   // updatesboard, check wins/loses/ties
   handleClick(i) {
     const spot = this.state.board[i]
+    // determines current user using turns
     let winner = players[this.state.turn % 2]
+
+    // checks for empty spot
     if (!spot) {
       this.setState({
         board: updateBoard(this.state.board, i, this.state.turn),
         turn: this.state.turn + 1
       })
       if (checkWin(this.state.board,i, this.state.turn)) {
-
         if (winner === 'x') {
           this.setState({
             x: this.state.x + 1,
@@ -55,6 +57,7 @@ class Game extends Component {
     }
   }
 
+  // method to reset the this.state
   replay() {
     this.setState({
       board: [null, null, null,null, null, null,null, null, null],
@@ -101,7 +104,7 @@ const checkWin = function(board, spot, turn) {
     [0,4,8],
     [2,4,6]
   ]
-  // return(board[winCombo[0][0]])
+  // for loop that tests for winning combinations specified in winCombo = []
   for (let i = 0; i < winCombo.length; i++) {
     if (board[winCombo[i][0]] === board[winCombo[i][1]] &&  board[winCombo[i][1]] === board[winCombo[i][2]] &&  board[winCombo[i][2]] === players[turn % 2]) {
       return true
