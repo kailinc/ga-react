@@ -47,7 +47,7 @@ class Game extends Component {
           turn: 0
         })
       } else {
-        let message = "Player " + winner + "'s Turn.'"
+        let message = "Player " + winner + "'s Turn."
         this.setState({
           msg: message
         })
@@ -58,7 +58,8 @@ class Game extends Component {
   replay() {
     this.setState({
       board: [null, null, null,null, null, null,null, null, null],
-      turn: 0
+      turn: 0,
+      msg: 'New Game'
     })
   }
 
