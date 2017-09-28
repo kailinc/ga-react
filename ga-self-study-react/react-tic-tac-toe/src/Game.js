@@ -13,7 +13,8 @@ class Game extends Component {
       board: [null, null, null, null, null, null, null, null, null],
       turn: 0,
       x: 1,
-      o: 0
+      o: 0,
+      msg: 'Welcome to React T3'
     }
     this.handleClick = this.handleClick.bind(this)
     this.replay = this.replay.bind(this)
@@ -22,25 +23,33 @@ class Game extends Component {
   // updatesboard, check wins/loses/ties
   handleClick(i) {
     const spot = this.state.board[i]
+    let winner = players[this.state.turn % 2]
     if (!spot) {
       this.setState({
         board: updateBoard(this.state.board, i, this.state.turn),
         turn: this.state.turn + 1
       })
       if (checkWin(this.state.board,i, this.state.turn)) {
-        let winner = players[this.state.turn % 2]
+
         if (winner === 'x') {
           this.setState({
-            x: this.state.x + 1
+            x: this.state.x + 1,
+            msg: 'Player X Wins!'
           })
         } else {
           this.setState({
-            o: this.state.o + 1
+            o: this.state.o + 1,
+            msg: 'Player O Wins!'
           })
         }
         this.setState({
           board: [null, null, null,null, null, null,null, null, null],
           turn: 0
+        })
+      } else {
+        let message = "Player " + winner + "'s Turn.'"
+        this.setState({
+          msg: message
         })
       }
     }
@@ -61,7 +70,7 @@ class Game extends Component {
           </div>
             <Aside win={this.state.x} player='X'/>
           <div>
-              <Message />
+              <Message msg={this.state.msg}/>
               <Board board={this.state.board} onMarkSpot={this.handleClick}/>
               <ReplayBtn handleClick={this.replay}/>
           </div>
@@ -77,7 +86,7 @@ class Game extends Component {
         </div>
           <Aside win={this.state.x} player='X'/>
         <div>
-            <Message />
+            <Message msg={this.state.msg}/>
             <Board board={this.state.board} onMarkSpot={this.handleClick}/>
         </div>
         <div>
