@@ -275,3 +275,50 @@ When your application is complex, use CSS modules or regulat CSS stylesheets
   ```
   Thoughts:
   - I don't see any benefits using this.
+
+## SitePoint: Styling in React: From External CSS to Styled Components
+
+-   In-line style move the CSS definitions from the CSS file.
+-   Removes the need to import file and save on bandwith.
+-   sacrificies readability, maintainability, and style inheritance
+
+```html
+<button style="background: red; border-radius: 8px; color: white;">Click Me</button>
+```
+
+### CSS Modules
+
+button.css
+```css
+.button {
+  background: red;
+  border-radius: 8px;
+  color: white;
+}
+```
+
+button.js
+```js
+import styles from './button.css';
+document.body.innerHTML = `<button class="${styles.button}">test</button>`;
+```
+
+-   CSS is in its own file
+-   if CSS module used in Webpack or another bundler, CSS is added as script tag in html file
+-   class names are hashed
+
+index.html
+```html
+<style>
+  .DhtEg {
+    background: red;
+    border-radius: 8px;
+    color: white;
+  }
+</style>
+
+<button class="DhtEg">test</button>
+```
+Thoughts:
+- I don't like this approach cuz it messes up the semantics. I want my page to be
+  high in the search results.
