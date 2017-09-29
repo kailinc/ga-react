@@ -208,3 +208,70 @@ When your application is complex, use CSS modules or regulat CSS stylesheets
   Thoughts:
   -   this is pretty interesting. The only thing so far I don't like about it is that
       it can make your component file huge.
+
+  ### React style
+
+  React Style is the same sytanx as React Native. It is a tool like Radium.
+  It's not maintained anymore, so I'll ignore it.
+
+  ### JSS
+
+  It is a JSON to StyleSheet compiler. You have to npm install with react.jss.
+
+  ```js
+  ...
+  import classnames from 'classnames';
+  import useSheet from 'react-jss';
+
+  const styles = {
+    button: {
+      padding: '1em'
+    },
+    'media (max-width: 200px)': {
+      button: {
+        width: '100%'
+      }
+    },
+    primary: {
+      background: 'green'
+    },
+    warning: {
+      background: 'yellow'
+    }
+  };
+
+  @useSheet(styles)
+  export default class ConfirmButton extends React.Component {
+    render() {
+      const {classes} = this.props.sheet;
+
+      return <button
+        className={classnames(classes.button, classes.primary)}>
+          Confirm
+        </button>;
+    }
+  }
+  ```
+  Thoughts:
+  -   I don't see any benefits using this. The article doesn't do a good job at explaining it.
+
+  ### React Inline
+
+  - It generates CSS based on classname prop of elements where it is used
+  Example:
+
+  ```js
+  import cx from 'classnames';
+  ...
+
+  class ConfirmButton extends React.Component {
+    render() {
+      const {className} = this.props;
+      const classes = cx(styles.button, styles.primary, className);
+
+      return <button className={classes}>Confirm</button>;
+    }
+  }
+  ```
+  Thoughts:
+  - I don't see any benefits using this.
