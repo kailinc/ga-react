@@ -150,8 +150,61 @@ When your application is complex, use CSS modules or regulat CSS stylesheets
     ```
 
     Thoughts:
-    -  This is soo cool! I think I will use a mix of this approach and a main.css to set the "theme"
+    -   This is soo cool! I think I will use a mix of this approach and a main.css to set the "theme"
        for styling.
     Concern:
-    -  If this is hosted on the web. How does the html look like? I want my project
+    -   If this is hosted on the web. How does the html look like? I want my project
        to have a good SEO which requires good, industry standard semantic tags?
+
+## SurviveJS: Styling React
+
+### Old School Styling
+-   use ids and classes
+-   everything is global
+-   nesting definitions (.main .sidebar .button) creates implicit logic to styling
+-   this is acceptable when starting out, but as you develop, you most likely want to migrate from it (but why?)
+
+### CSS Methodologies
+-   if app gets big, the old school way will cause problems in loading order
+-   if selectors end up in tie, last declaration wins, unless there is !important
+
+
+### Inline Styles to Rescue
+-   Downside to this approach: hard to have a massive change cuz we have to tweak a lot of components
+
+### Radium
+
+  Radium is a tool that you can use to deal with inline styling
+
+  ```js
+      const styles = {
+    button: {
+      padding: '1em',
+
+      ':hover': {
+        border: '1px solid black'
+      },
+
+      '@media (max-width: 200px)': {
+        width: '100%',
+
+        ':hover': {
+          background: 'white',
+        }
+      }
+    },
+    primary: {
+      background: 'green'
+    },
+    warning: {
+      background: 'yellow'
+    },
+  };
+
+  ...
+
+  <button style={[styles.button, styles.primary]}>Confirm</button>
+  ```
+  Thoughts:
+  -   this is pretty interesting. The only thing so far I don't like about it is that
+      it can make your component file huge.
