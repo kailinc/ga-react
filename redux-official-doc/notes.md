@@ -126,3 +126,22 @@ function todoApp(state = {}, action) {
   }
 }
 ```
+
+### Three Principles
+
+1. Single Source of Truth
+    State of whole application is stored in an object tree within a single store
+    Single state tree makes it easier to debug or inspect an application
+
+2. State is read-only
+    The only way to change the state isg to emit an action, objc that describes what happens
+    all changes happen one by one in a strict other
+    actions are just plain objects that can be logged, serializer, stored, replayed
+
+
+3. Changes are made with pure functions
+     To specify how the state tree is transformed by actions, you write pure reducers
+     Reducers are just pure functions that take previous state and an action, and returns the next state
+     Start with a single reducer
+     As app grows, split it off to smaller reducers that manage diff parts of state tree
+     can controler order in which reducers are called, pass additional data, or make reusable reducers for common tasks like pagination
