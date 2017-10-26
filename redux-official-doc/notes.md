@@ -145,3 +145,97 @@ function todoApp(state = {}, action) {
      Start with a single reducer
      As app grows, split it off to smaller reducers that manage diff parts of state tree
      can controler order in which reducers are called, pass additional data, or make reusable reducers for common tasks like pagination
+
+## Basics
+
+### Actions
+
+-   Actions are payloads of info that send data from app to store
+-   It is the only source of information for the store
+-   send action to store by store.dispatch()
+```js
+const ADD_TODO = 'ADD_TODO'
+
+{
+  type: ADD_TODO,
+  text: 'Build my first Redux app'
+}
+```
+-   Actions have a type property that indicates the type of action being performed
+-   Types should be defined as string constants
+-   If app is large, may want to move them into a seperate module
+
+```js
+import { ADD_TODO, REMOVE_TODO } from '../actionTypes'
+```
+
+-   another action type is index
+-   Index is essentially ID
+-   recommended to generate a new id each time, but it is fine to increment it by 1
+-   It is a good idea to pass fewer info as possible, maybe just pass in index (idk why)
+
+Action creators are functions that create actions
+
+```js
+function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}
+```
+-   to initiate a dispatch pass the result into a dispath()
+
+```js
+dispatch(addTodo(text))
+```
+
+-   can create bound action creater
+```js
+const boundAddTodo = text => dispatch(addTodo(text))
+const boundCompleteTodo = index => dispatch(completeTodo(index))
+
+
+boundAddTodo(text)
+boundCompleteTodo(index)
+```
+-   looks like a function that uses es2016 syntax that when invoked will call dispath onto the action creator
+-   can use boundActionCreators to bound many action creators
+
+
+Exporting functions
+```js
+/*
+ * action types
+ */
+
+export const ADD_TODO = 'ADD_TODO'
+export const TOGGLE_TODO = 'TOGGLE_TODO'
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+
+/*
+ * other constants
+ */
+
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
+
+/*
+ * action creators
+ */
+
+export function addTodo(text) {
+  return { type: ADD_TODO, text }
+}
+
+export function toggleTodo(index) {
+  return { type: TOGGLE_TODO, index }
+}
+
+export function setVisibilityFilter(filter) {
+  return { type: SET_VISIBILITY_FILTER, filter }
+}
+```
