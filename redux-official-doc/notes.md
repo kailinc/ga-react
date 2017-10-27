@@ -239,3 +239,97 @@ export function setVisibilityFilter(filter) {
   return { type: SET_VISIBILITY_FILTER, filter }
 }
 ```
+
+### Reducers
+Reducer will specify how states changes in response
+Reducer takes a previous state and action, returns the next state
+Things you should never do inside a reducer
+  1. Mutate the arguments
+  2. perform side effects like API calls and routing transitions
+  3. call non-pure functions Date.now() or Math.random()
+
+Pure functions: functions that given same input, will always return the same output, produce no side effects
+
+```js
+import { VisibilityFilters } from './actions'
+
+const initialState = {
+  visibilityFilters: VisibilityFilters.SHOW_ALL,
+  todos: []
+}
+
+// reducer
+function todoApp(state, action) {
+  if (typeof state === 'undefined') {
+    return initialState
+  }
+  return state
+}
+
+// ES6 WAY, does the same thing as the top reducer
+// seems like if state is undefined, will assign initialState to it
+// else does nothing
+function todoApp(state = initialState, action) {
+  return state
+}
+```
+
+handle SET_VISIBILITY_FILTER
+```js
+function todoApp(state = initialState, action) {
+  switch (action.type) {
+    // if action.type is SET_VISIBILITY_FILTER, return a new object that is state and action.filter
+    case SET_VISIBILITY_FILTER:
+      return Object,assign({}, state, {
+        visibilityFilter: action.filter
+      })
+    default:
+      return state
+  }
+}
+```
+
+### Handling More actions
+
+```js
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  SET_VISIBILITY_FILTER,
+  VisibilityFilters
+} from './actions'
+
+function todoApp(state = initialState, action) {
+  switch(action.type) {
+    case SET_VISIBILITY_FILTER:
+      return Object.assign({}, state, {
+        VisibilityFilter: action.filter
+      })
+    case ADD_TODO:
+      return Object.assign({}, state, {
+        todos: [
+          ... state.todos,
+          {
+            text: action.text,
+            completed: false
+          }
+        ]
+      })
+    case TOGGLE_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo, index) => {
+          if (index === action.index) {
+            return Object.assign({}, todo, {
+              completed: !todo.completed
+            })
+          }
+          return todo
+        })
+      })
+    default:
+      return state
+  }
+}
+```
+-   can split todos into a seperate function because todos and visibilityFilters are updated completely
+    independently 
