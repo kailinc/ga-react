@@ -382,3 +382,29 @@ const todoApp = combineReducers({
   todos
 })
 ```
+
+### Store
+
+-   Store is object that brings actions, reducers together
+-   What Store Does:
+  1. Hold application state
+  2. Allows access to state with getState()
+  3. Allows state to be updated with dispatch(action)
+  4. registers listeners via subscribe(listener)
+  5. handles unregistering of listeners via function returned by subscribte(listener)
+
+-  You have 1 store in Redux application
+
+```js
+import { createStore } from 'redux'
+import todoApp from './reducers'
+let store = createStore(todoApp)
+```
+
+todoApp()
+```js
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos
+})
+```
