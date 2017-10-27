@@ -426,4 +426,17 @@ const todoApp = combineReducers({
 
 ### Usage with React
 -   Redux can be used with anything ( Angular, Ember, jQuery, JS, React)
--   
+
+  Presentational Components
+  -   about how things look
+  -   not aware of redux
+  -   read data from props
+  -   change data by invoking callbacks from props
+  -   are written by hand
+
+  Container Components
+  -   about how things work (data fetching, state updates)
+  -   aware of Redux
+  -   read data by subscribing to redux state
+  -   change data by dispatch()
+  -   written by generation of React Redux
