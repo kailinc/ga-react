@@ -408,3 +408,18 @@ const todoApp = combineReducers({
   todos
 })
 ```
+
+### Data Flow
+
+-   Redux follows a strict unidirectional data flow
+
+#### Steps in Data Cycle in Redux
+
+1. You call store.dispatch(action)
+   -   I think this means send action to store
+   -   can call store.dispatch(action) from anywhere in your app
+
+2. The Redux store calls the reducer function you gave it
+   -   store will pass current state tree and action to reducer
+3. The root reducer may combine the output of multiple reducers into a single state tree
+4. Redux store saves the complete state tree returned by the root reducer
