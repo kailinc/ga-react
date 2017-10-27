@@ -423,3 +423,7 @@ const todoApp = combineReducers({
    -   store will pass current state tree and action to reducer
 3. The root reducer may combine the output of multiple reducers into a single state tree
 4. Redux store saves the complete state tree returned by the root reducer
+
+### Usage with React
+-   Redux can be used with anything ( Angular, Ember, jQuery, JS, React)
+-   
