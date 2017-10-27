@@ -396,7 +396,7 @@ const todoApp = combineReducers({
 -  You have 1 store in Redux application
 
 ```js
-import { createStore } from 'redux'
+import { createStore } from 'reduxg'
 import todoApp from './reducers'
 let store = createStore(todoApp)
 ```
