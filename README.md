@@ -9,12 +9,13 @@ Then I will have enough knowledge, so I will redo my Mango-Bytes project.
 
 1. [Self Study by General Assembly](https://git.generalassemb.ly/pages/education-product/module-fe-framework-react/532rwqfzbfasnbfansfbasnbfqpi4u4p1421fafaa/)
 2. [Four Ways to Style React Components](https://medium.com/@aghh1504/4-four-ways-to-style-react-components-ac6f323da822)
+3. [Styling React](https://survivejs.com/react/advanced-techniques/styling-react/)
+4. [Styling in React: From External to Syled Components](https://www.sitepoint.com/style-react-components-styled-components/)
+5. [Modular CSS with React](https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e)
 
 ## Currently Learning
 
-1. [Styling React](https://survivejs.com/react/advanced-techniques/styling-react/)
-2. [Styling in React: From External to Syled Components](https://www.sitepoint.com/style-react-components-styled-components/)
-3. [Modular CSS with React](https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e)
+1. [Complete React Web Developer Course (with Redux)](https://www.udemy.com/react-2nd-edition/learn/v4/content)
 
 ## Materials to Tackle in the Future
 
