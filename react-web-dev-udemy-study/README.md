@@ -169,4 +169,7 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 
 ### Event and Attributes
 
--   
+### Manual Data Binding
+
+-   JSX does not have data binding 
+-
