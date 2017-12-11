@@ -45,3 +45,90 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 
   - React does not let you render the whole object
   - you have to specify parts of the object to use
+
+  ### Conditional Rendering in JSX
+
+  - use a function that will return a value based on condition
+  ```js
+  var user = {
+    name: 'Andrew',
+    age: 29,
+    location: 'Boston, MA'
+  };
+
+  function getLocation (location) {
+    return location ? location : 'Unknown';
+  }
+
+  var templateTwo = (
+    <div>
+      <h1>{ user.name }</h1>
+      <p>Age: { user.age }</p>
+      <p>Location: { getLocation(user.location) }</p>
+    </div>
+  )
+  ```
+
+  - you have write a jsx within {}
+  ` {<h3> This is a H3</h3>}`
+  - this lets you render if a value exists, if value doesn't exist you don't return
+   something to return. So you return undefined
+
+  ```js
+  function getLocation (location) {
+    return location ? <p>Location: { location }</p> : undefined;
+  }
+
+  var templateTwo = (
+    <div>
+      <h1>{ user.name }</h1>
+      <p>Age: { user.age }</p>
+      { getLocation(user.location) }
+    </div>
+  )
+  ```
+
+  - can use ternary statement in {}
+  ```js
+    <h1>{ user.name ? user.name : 'Anonymous' }</h1>
+  ```
+
+  - can use true or false to render it because JSX ignores null, false, and undefined
+
+  ```js
+  { user.age >= 18 && <p>Age: { user.age }</p> }
+  ```
+  - if user.age > 18 === true , it will render that
+  - else it will return false and JSX will ignore it
+  - very nifty
+
+  - There are 3 ways to do conditional rendering in JSX. Essentially it gets the
+    same results. However, some approach might be better than other approaches
+    depending on your needs.
+
+    1. using an outside function
+    -   This may be for checking more complicated stuff
+    example:
+      ```js
+      function getLocation (location) {
+        return location ? <p>Location: { location }</p> : undefined;
+      }
+
+      { getLocation(user.location) }
+      ```
+
+    2. Using ternary statement
+    -   You should use this if you are sure you are going to render something everything
+    example:
+    ```js
+    <h1>{ user.name ? user.name : 'Anonymous' }</h1>
+    ```
+
+
+    3. Using AND operator
+    -   You should use this if you are not going to render something sometimes.
+    -   It is clever in using the fact that JSX will not render false, null, or undefined
+
+    ```js
+    { user.age >= 18 && <p>Age: { user.age }</p> }
+    ```
