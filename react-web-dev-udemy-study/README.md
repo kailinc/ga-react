@@ -140,4 +140,23 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
   -    const and let will help you write better code and keep track of your code
   -    let and const are block scope, meaning they only exist in code block of an
        if statement, for, while loop
-  -    
+
+  ### ES6 Aside: Arrow Function
+
+  ```js
+  // Regular Function
+  const square = function (x) {
+    return x * x
+  };
+
+  // Arrow Function
+  const square = (x) => {
+    return x * x
+  }
+
+  // Can be simplified into this one liner
+  const square = (x) => x * x
+  ```
+
+  -    All arrow functions are anynmous, can't reference it by its name
+  -
