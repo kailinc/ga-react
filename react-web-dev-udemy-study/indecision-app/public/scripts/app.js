@@ -22,6 +22,16 @@ var onRemoveAll = function onRemoveAll() {
   renderAgain();
 };
 
+var getOptions = function getOptions() {
+  return app.options.map(function (option, index) {
+    return React.createElement(
+      'li',
+      { key: index },
+      option
+    );
+  });
+};
+
 var renderAgain = function renderAgain() {
   var template = React.createElement(
     'div',
@@ -42,23 +52,9 @@ var renderAgain = function renderAgain() {
       app.options.length > 0 ? 'Here are your options' : 'You have no options'
     ),
     React.createElement(
-      'p',
-      null,
-      app.options.length
-    ),
-    React.createElement(
       'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        'Item one'
-      ),
-      React.createElement(
-        'li',
-        null,
-        'Item two'
-      )
+      getOptions()
     ),
     React.createElement(
       'button',

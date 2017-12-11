@@ -20,16 +20,18 @@ const onRemoveAll = () => {
   renderAgain();
 }
 
+const getOptions = () => {
+  return app.options.map((option, index) => <li key={ index }>{ option }</li>)
+}
+
 const renderAgain = () => {
   const template = (
     <div>
       <h1>{ app.title }</h1>
       { app.subTitle && <p>{ app.subTitle }</p> }
       <p>{ app.options.length > 0 ? 'Here are your options' : 'You have no options' }</p>
-      <p>{app.options.length}</p>
       <ol>
-        <li>Item one</li>
-        <li>Item two</li>
+        { getOptions() }
       </ol>
       <button onClick={ onRemoveAll }>Remove All</button>
       <form onSubmit={ onFormSubmit } >
