@@ -166,3 +166,7 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 
 -   arguments object - no longer bound with arrow functions
 -   this keyword  - no longer bound
+
+### Event and Attributes
+
+-   
