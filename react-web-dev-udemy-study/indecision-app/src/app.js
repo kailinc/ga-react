@@ -1,12 +1,13 @@
 // JSX - JavaScript XML
 console.log('app.js is running')
 
-var app = {
+let app = {
   title: 'Indecision App',
   subTitle: 'App Fit for a King',
   options: ['One', 'Two']
 }
-var template = (
+
+const template = (
   <div>
     <h1>{ app.title }</h1>
     { app.subTitle && <p>{ app.subTitle }</p> }
@@ -18,7 +19,7 @@ var template = (
   </div>
 )
 
-var user = {
+let user = {
   name: 'Andrew',
   age: 18,
   location: 'Boston, MA'
@@ -28,7 +29,7 @@ function getLocation (location) {
   return location ? <p>Location: { location }</p> : undefined;
 }
 
-var templateTwo = (
+const templateTwo = (
   <div>
     <h1>{ user.name ? user.name : 'Anonymous' }</h1>
     { user.age >= 18 && <p>Age: { user.age }</p> }
@@ -36,7 +37,7 @@ var templateTwo = (
   </div>
 )
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(
   template,

@@ -124,11 +124,20 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
     <h1>{ user.name ? user.name : 'Anonymous' }</h1>
     ```
 
-
     3. Using AND operator
     -   You should use this if you are not going to render something sometimes.
     -   It is clever in using the fact that JSX will not render false, null, or undefined
-
     ```js
     { user.age >= 18 && <p>Age: { user.age }</p> }
     ```
+
+  ### ES6 Aside: const and Let
+
+  -    var's problem: you can reassign a variable, override variables
+  -    these problems makes it hard to find bugs
+  -    Can't redefine let, but can reaasign let variable to a new value
+  -    const can't redefine, and reassign
+  -    const and let will help you write better code and keep track of your code
+  -    let and const are block scope, meaning they only exist in code block of an
+       if statement, for, while loop
+  -    

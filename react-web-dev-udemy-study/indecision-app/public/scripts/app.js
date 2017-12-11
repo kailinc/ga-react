@@ -8,6 +8,7 @@ var app = {
   subTitle: 'App Fit for a King',
   options: ['One', 'Two']
 };
+
 var template = React.createElement(
   'div',
   null,
