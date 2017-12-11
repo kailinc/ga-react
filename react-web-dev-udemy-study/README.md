@@ -39,4 +39,9 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
   - out-file is where to be the compiled file
   - presets is where you define what presets you want to use
   - if you put --watch, it will watch for changes in src/app.js and make changes to scripts/app.js if there is any changes
-  -
+
+
+  ### Exploring JSX
+
+  - React does not let you render the whole object
+  - you have to specify parts of the object to use

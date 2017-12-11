@@ -1,20 +1,46 @@
 'use strict';
 
 // JSX - JavaScript XML
-var tempalte = React.createElement(
+console.log('app.js is running');
+
+var app = {
+  title: 'Indecision App',
+  subTitle: 'App Fit for a King'
+};
+var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Indecision App'
+    app.title
   ),
   React.createElement(
     'p',
     null,
-    'For people who dont know what to do with their life'
+    app.subTitle
+  ),
+  React.createElement(
+    'ol',
+    null,
+    React.createElement(
+      'li',
+      null,
+      'Item one'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'Item two'
+    )
   )
 );
+
+var user = {
+  name: 'Andrew',
+  age: 29,
+  location: 'Boston, MA'
+};
 
 var templateTwo = React.createElement(
   'div',
@@ -22,20 +48,22 @@ var templateTwo = React.createElement(
   React.createElement(
     'h1',
     null,
-    'Kailin Chen'
+    user.name
   ),
   React.createElement(
     'p',
     null,
-    'Age: 22'
+    'Age: ',
+    user.age
   ),
   React.createElement(
     'p',
     null,
-    'Location: Boston, MA'
+    'Location: ',
+    user.location
   )
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
