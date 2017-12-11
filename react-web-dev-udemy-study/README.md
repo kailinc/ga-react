@@ -141,7 +141,7 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
   -    let and const are block scope, meaning they only exist in code block of an
        if statement, for, while loop
 
-  ### ES6 Aside: Arrow Function
+  ### ES6 Aside: Arrow Function I
 
   ```js
   // Regular Function
@@ -160,3 +160,9 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 
   -    All arrow functions are anynmous, can't reference it by its name
   -
+
+
+### ES6: Arrow Functions II
+
+-   arguments object - no longer bound with arrow functions
+-   this keyword  - no longer bound
