@@ -1,91 +1,35 @@
 'use strict';
 
-// JSX - JavaScript XML
-var app = {
-  title: 'Indecision App',
-  subTitle: 'App Fit for a King',
-  options: ['One', 'Two']
-};
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var input = e.target.elements.option.value;
-  if (input) {
-    app.options.push(input);
-    e.target.elements.option.value = '';
-    renderAgain();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Person = function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anynomous';
+    var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.age = age;
   }
-};
 
-var onRemoveAll = function onRemoveAll() {
-  app.options = [];
-  renderAgain();
-};
+  _createClass(Person, [{
+    key: 'getDescription',
+    value: function getDescription() {
+      return this.name + ' is ' + this.age + ' year(s) old!';
+    }
+  }]);
 
-var getOptions = function getOptions() {
-  return app.options.map(function (option, index) {
-    return React.createElement(
-      'li',
-      { key: index },
-      option
-    );
-  });
-};
+  return Person;
+}();
 
-var onMakeDecision = function onMakeDecision() {
-  var ranNum = Math.floor(Math.random() * app.options.length);
-  var result = app.options[ranNum];
-  alert(result);
-};
+var kai = new Person('Kailin Chen');
 
-var renderAgain = function renderAgain() {
-  var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-      'h1',
-      null,
-      app.title
-    ),
-    app.subTitle && React.createElement(
-      'p',
-      null,
-      app.subTitle
-    ),
-    React.createElement(
-      'p',
-      null,
-      app.options.length > 0 ? 'Here are your options' : 'You have no options'
-    ),
-    React.createElement(
-      'ol',
-      null,
-      getOptions()
-    ),
-    React.createElement(
-      'button',
-      { disabled: app.options.length === 0, onClick: onMakeDecision },
-      'What Should I Do?'
-    ),
-    React.createElement(
-      'button',
-      { disabled: app.options.length === 0, onClick: onRemoveAll },
-      'Remove All'
-    ),
-    React.createElement(
-      'form',
-      { onSubmit: onFormSubmit },
-      React.createElement('input', { type: 'text', name: 'option' }),
-      React.createElement(
-        'button',
-        null,
-        'Add Option'
-      )
-    )
-  );
+console.log('this is kai ', kai);
+console.log('this is kai saying hello ', kai.getDescription());
 
-  var appRoot = document.getElementById('app');
-  ReactDOM.render(template, appRoot);
-};
+var lin = new Person();
 
-renderAgain();
+console.log('this is lin ', lin);

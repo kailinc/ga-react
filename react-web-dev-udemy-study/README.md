@@ -178,3 +178,17 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 ## Section 4 React Components
 
 ### Thinking in React
+
+### ES6 Classes: Part 1
+
+-   You can set defaults for class
+-   you define it in the arugments
+-   Below, if you don't provide name, it will be 'Unknown' by default
+
+```js
+class Person {
+  constructor(name = 'Unknown') {
+    this.name = name
+  }
+}
+```
