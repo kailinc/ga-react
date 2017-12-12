@@ -192,3 +192,29 @@ class Person {
   }
 }
 ```
+
+### ES6 Classes: Part 1
+
+-   You inherit a class by using extends
+```js
+class Student extends Person {
+}
+```
+-   You use super to gain access to parent class
+```js
+// Parent Class
+class Person {
+  constructor(name = 'Anynomous', age = 0) {
+    this.name = name
+    this.age = age
+  }
+}
+
+// Child Class
+class Student extends Person {
+  constructor(name, age, major) {
+    super(name, age);
+    this.major = major
+  }
+}
+```

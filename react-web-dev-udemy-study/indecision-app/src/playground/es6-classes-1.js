@@ -3,16 +3,45 @@ class Person {
     this.name = name
     this.age = age
   }
+  getGreeting() {
+    return `Hi. I am ${this.name}.`
+  }
   getDescription() {
     return `${this.name} is ${this.age} year(s) old!`
   }
 }
 
-let kai = new Person('Kailin Chen')
+class Student extends Person {
+  constructor(name, age, major) {
+    super(name, age);
+    this.major = major
+  }
+  hasMajor() {
+    return !!this.major;
+  }
+  getDescription() {
+    let description = super.getDescription();
+    if (this.hasMajor()) {
+      description += ` The studen'ts major is ${this.major}.`;
+    }
+    return description
+  }
+}
 
-console.log('this is kai ', kai)
-console.log('this is kai saying hello ', kai.getDescription())
+class Traveler extends Person {
+  constructor(name, age, homeLocation) {
+    super(name, age)
+    this.homeLocation = homeLocation
+  }
+  getGreeting() {
+    let greeting = super.getGreeting()
+    if (this.homeLocation) {
+      greeting += ` I am visiting from ${this.homeLocation}.`
+    }
+    return greeting
+  }
+}
 
-let lin = new Person()
+let marcoPolo = new Traveler('Marco Polo', 32)
 
-console.log('this is lin ', lin)
+console.log('MarcoPolo introducing: ', marcoPolo.getGreeting())
