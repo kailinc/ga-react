@@ -1,55 +1,55 @@
-// JSX - JavaScript XML
-let app = {
-  title: 'Indecision App',
-  subTitle: 'App Fit for a King',
-  options: ['One', 'Two']
-}
-
-const onFormSubmit = (e) => {
-  e.preventDefault()
-  const input = e.target.elements.option.value;
-  if (input) {
-    app.options.push(input)
-    e.target.elements.option.value = ''
-    renderAgain();
+class Header extends React.Component {
+  render() {
+    return(
+      <div>
+        <h1>Indecision</h1>
+        <h2>Put Your Life in the hands of a computer</h2>
+      </div>
+    )
   }
 }
 
-const onRemoveAll = () => {
-  app.options = [];
-  renderAgain();
+class Action extends React.Component {
+    render() {
+      return(
+        <div>
+          <button>What should I do? </button>
+        </div>
+      );
+    }
 }
 
-const getOptions = () => {
-  return app.options.map((option, index) => <li key={ index }>{ option }</li>)
+
+class Options extends React.Component {
+  render() {
+    return(
+      <div>
+        <p>This is Options Component</p>
+      </div>
+    )
+  }
 }
 
-const onMakeDecision = () => {
-  const ranNum = Math.floor(Math.random() * app.options.length)
-  const result = app.options[ranNum]
-  alert(result);
+class AddOption extends React.Component {
+    render() {
+      return(
+        <div>
+          <p>This is AddOptions Component</p>
+        </div>
+      )
+    }
 }
 
-const renderAgain = () => {
-  const template = (
+const jsx = (
     <div>
-      <h1>{ app.title }</h1>
-      { app.subTitle && <p>{ app.subTitle }</p> }
-      <p>{ app.options.length > 0 ? 'Here are your options' : 'You have no options' }</p>
-      <ol>
-        { getOptions() }
-      </ol>
-      <button disabled={ app.options.length === 0 } onClick={ onMakeDecision }>What Should I Do?</button>
-      <button disabled={ app.options.length === 0 } onClick={ onRemoveAll }>Remove All</button>
-      <form onSubmit={ onFormSubmit } >
-        <input type="text" name="option"/>
-        <button>Add Option</button>
-      </form>
+      <Header />
+      <Action />
+      <Options />
+      <AddOption />
     </div>
-  )
+)
 
-  const appRoot = document.getElementById('app');
-  ReactDOM.render(template, appRoot);
-}
-
-renderAgain();
+ReactDOM.render(
+  jsx,
+  document.getElementById('app')
+)
