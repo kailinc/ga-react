@@ -171,5 +171,6 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
 
 ### Manual Data Binding
 
--   JSX does not have data binding 
--
+-   JSX does not have data binding
+
+### Picking an Option

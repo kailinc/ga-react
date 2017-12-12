@@ -32,6 +32,12 @@ var getOptions = function getOptions() {
   });
 };
 
+var onMakeDecision = function onMakeDecision() {
+  var ranNum = Math.floor(Math.random() * app.options.length);
+  var result = app.options[ranNum];
+  alert(result);
+};
+
 var renderAgain = function renderAgain() {
   var template = React.createElement(
     'div',
@@ -58,7 +64,12 @@ var renderAgain = function renderAgain() {
     ),
     React.createElement(
       'button',
-      { onClick: onRemoveAll },
+      { disabled: app.options.length === 0, onClick: onMakeDecision },
+      'What Should I Do?'
+    ),
+    React.createElement(
+      'button',
+      { disabled: app.options.length === 0, onClick: onRemoveAll },
       'Remove All'
     ),
     React.createElement(

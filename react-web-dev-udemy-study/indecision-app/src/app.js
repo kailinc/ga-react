@@ -24,6 +24,12 @@ const getOptions = () => {
   return app.options.map((option, index) => <li key={ index }>{ option }</li>)
 }
 
+const onMakeDecision = () => {
+  const ranNum = Math.floor(Math.random() * app.options.length)
+  const result = app.options[ranNum]
+  alert(result);
+}
+
 const renderAgain = () => {
   const template = (
     <div>
@@ -33,7 +39,8 @@ const renderAgain = () => {
       <ol>
         { getOptions() }
       </ol>
-      <button onClick={ onRemoveAll }>Remove All</button>
+      <button disabled={ app.options.length === 0 } onClick={ onMakeDecision }>What Should I Do?</button>
+      <button disabled={ app.options.length === 0 } onClick={ onRemoveAll }>Remove All</button>
       <form onSubmit={ onFormSubmit } >
         <input type="text" name="option"/>
         <button>Add Option</button>
