@@ -220,3 +220,5 @@ class Student extends Person {
 ```
 
 ### Creating React Component
+
+### Component Props
