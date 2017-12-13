@@ -225,4 +225,32 @@ class Student extends Person {
 
 ### Component State
 
-### Adding State to Counter App 
+### Adding State to Counter App Part 1
+
+### Adding State to Counter App Part 2
+
+### Adding State to Counter App Part 3
+
+-   this.state() is async
+-   there are two ways to do this.setState()
+-   You can pass as a function or as an object
+-   You should pass as obj if you don't require the prevState
+-   You should pass a function if you require the prevState
+-
+```js
+// You require prevState so you pass in function
+handleMinusOne() {
+  this.setState((prevState) => {
+    return {
+      counter: prevState.counter - 1
+    }
+  })
+}
+
+// Your change does not require prev State so you pass in obj
+handleReset() {
+  this.setState({
+    counter: 0
+  })
+}
+```
