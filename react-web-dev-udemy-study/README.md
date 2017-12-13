@@ -261,3 +261,13 @@ handleReset() {
 ```js
 <Action hasOptions={ this.state.options > 0 }/>
 ```
+
+### State vs Props
+
+-   props flow in one direction
+-   props and state are objects
+-   both can be used to render
+-   changes to both cause rerender
+-   can't change props by itself
+-   state is defined in the component
+-   props comes from above
