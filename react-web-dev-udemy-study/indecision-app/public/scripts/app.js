@@ -79,6 +79,11 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
+    key: 'handlePick',
+    value: function handlePick() {
+      alert('handlePick');
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -86,7 +91,7 @@ var Action = function (_React$Component3) {
         null,
         React.createElement(
           'button',
-          null,
+          { onClick: this.handlePick },
           'What should I do? '
         )
       );
@@ -106,13 +111,23 @@ var Options = function (_React$Component4) {
   }
 
   _createClass(Options, [{
+    key: 'handleRemoveAll',
+    value: function handleRemoveAll() {
+      alert('removing all ');
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
         null,
+        React.createElement(
+          'button',
+          { onClick: this.handleRemoveAll },
+          'Remove All Options '
+        ),
         this.props.options.map(function (cur, index) {
-          return React.createElement(Option, { key: index, value: cur });
+          return React.createElement(Option, { stuff: index, value: cur });
         })
       );
     }
@@ -138,7 +153,7 @@ var Option = function (_React$Component5) {
         null,
         React.createElement(
           'p',
-          { key: this.props.key },
+          { key: this.props.stuff },
           this.props.value
         )
       );
@@ -158,15 +173,30 @@ var AddOption = function (_React$Component6) {
   }
 
   _createClass(AddOption, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var option = e.target.elements.option.value.trim();
+      // trim() is to get rid of spaces if there are only spaces
+      if (option) {
+        console.log('handleSubmit: this is option ', option);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
         null,
         React.createElement(
-          'p',
-          null,
-          'This is AddOptions Component'
+          'form',
+          { onSubmit: this.handleSubmit },
+          React.createElement('input', { type: 'text', name: 'option' }),
+          React.createElement(
+            'button',
+            null,
+            'Add Option'
+          )
         )
       );
     }

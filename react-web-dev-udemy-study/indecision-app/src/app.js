@@ -1,4 +1,5 @@
 class IndecisionApp extends React.Component {
+
   render() {
     const title = 'Indecision'
     const subTitle = 'Put Your Life in the hands of a computer'
@@ -15,6 +16,7 @@ class IndecisionApp extends React.Component {
 }
 
 class Header extends React.Component {
+
   render() {
     return(
       <div>
@@ -26,44 +28,69 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-    render() {
-      return(
-        <div>
-          <button>What should I do? </button>
-        </div>
-      );
-    }
+
+  handlePick() {
+    alert('handlePick')
+  }
+
+  render() {
+    return(
+      <div>
+        <button onClick={ this.handlePick }>What should I do? </button>
+      </div>
+    );
+  }
 }
 
 
 class Options extends React.Component {
+
+  handleRemoveAll() {
+    alert('removing all ')
+  }
+
   render() {
     return(
       <div>
-        { this.props.options.map((cur, index) => <Option key={ index } value={ cur }/>) }
+        <button onClick={ this.handleRemoveAll }>Remove All Options </button>
+        { this.props.options.map((cur, index) => <Option stuff={ index } value={ cur }/>) }
       </div>
     )
   }
 }
 
 class Option extends React.Component {
+
   render() {
     return(
       <div>
-        <p key={ this.props.key }>{ this.props.value }</p>
+        <p key={ this.props.stuff }>{ this.props.value }</p>
       </div>
     )
   }
 }
 
 class AddOption extends React.Component {
-    render() {
-      return(
-        <div>
-          <p>This is AddOptions Component</p>
-        </div>
-      )
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const option = e.target.elements.option.value.trim();
+    // trim() is to get rid of spaces if there are only spaces
+    if (option) {
+      console.log('handleSubmit: this is option ', option)
     }
+  }
+
+  render() {
+    return(
+      <div>
+        <form onSubmit={ this.handleSubmit }>
+          <input type="text" name="option"/>
+          <button>Add Option</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(
