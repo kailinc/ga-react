@@ -224,3 +224,5 @@ class Student extends Person {
 ### Component Props
 
 ### Component State
+
+### Adding State to Counter App 
