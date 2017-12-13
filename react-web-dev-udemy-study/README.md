@@ -254,3 +254,10 @@ handleReset() {
   })
 }
 ```
+
+### Indecision App Part 1
+
+-   can use JSX to pass down boolean
+```js
+<Action hasOptions={ this.state.options > 0 }/>
+```
