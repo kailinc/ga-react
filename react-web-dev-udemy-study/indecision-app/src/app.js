@@ -2,10 +2,12 @@ class IndecisionApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      options: ['thing One', 'thing Two', 'thing Three']
+      options: [],
+      message: ''
     }
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
     this.handlePick = this.handlePick.bind(this)
+    this.handleAddOption = this.handleAddOption.bind(this)
   }
 
   handleDeleteOptions() {
@@ -18,6 +20,25 @@ class IndecisionApp extends React.Component {
     let ranNum = Math.floor(Math.random() * this.state.options.length)
     let ranOption = this.state.options[ranNum]
     console.log('handlePick: you should ', ranOption)
+  }
+
+  handleAddOption(option) {
+    if (!option) {
+      this.setState({
+        message: 'Please enter an option.'
+      })
+    } else if (this.state.options.indexOf(option) > -1) {
+      this.setState({
+        message: 'This option already exists.'
+      })
+    } else {
+      this.setState((prevState) => {
+        return {
+          options: prevState.options.concat(option),
+          message: 'Your option has been added.'
+        }
+      })
+    }
   }
 
   render() {
@@ -34,7 +55,10 @@ class IndecisionApp extends React.Component {
           options={ this.state.options }
           handleDeleteOptions={ this.handleDeleteOptions }
         />
-        <AddOption />
+        <AddOption
+          handleAddOption={ this.handleAddOption }
+        />
+        <p>{ this.state.message }</p>
       </div>
     )
   }
@@ -91,13 +115,17 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
   handleSubmit(e) {
     e.preventDefault()
-    const option = e.target.elements.option.value.trim();
+    const option = e.target.elements.option.value
     // trim() is to get rid of spaces if there are only spaces
     if (option) {
-      console.log('handleSubmit: this is option ', option)
+      this.props.handleAddOption(option)
     }
   }
 

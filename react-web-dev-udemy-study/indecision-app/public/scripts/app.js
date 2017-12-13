@@ -17,10 +17,12 @@ var IndecisionApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
     _this.state = {
-      options: ['thing One', 'thing Two', 'thing Three']
+      options: [],
+      message: ''
     };
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handlePick = _this.handlePick.bind(_this);
+    _this.handleAddOption = _this.handleAddOption.bind(_this);
     return _this;
   }
 
@@ -39,6 +41,26 @@ var IndecisionApp = function (_React$Component) {
       console.log('handlePick: you should ', ranOption);
     }
   }, {
+    key: 'handleAddOption',
+    value: function handleAddOption(option) {
+      if (!option) {
+        this.setState({
+          message: 'Please enter an option.'
+        });
+      } else if (this.state.options.indexOf(option) > -1) {
+        this.setState({
+          message: 'This option already exists.'
+        });
+      } else {
+        this.setState(function (prevState) {
+          return {
+            options: prevState.options.concat(option),
+            message: 'Your option has been added.'
+          };
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var title = 'Indecision';
@@ -55,7 +77,14 @@ var IndecisionApp = function (_React$Component) {
           options: this.state.options,
           handleDeleteOptions: this.handleDeleteOptions
         }),
-        React.createElement(AddOption, null)
+        React.createElement(AddOption, {
+          handleAddOption: this.handleAddOption
+        }),
+        React.createElement(
+          'p',
+          null,
+          this.state.message
+        )
       );
     }
   }]);
@@ -185,20 +214,23 @@ var Option = function (_React$Component5) {
 var AddOption = function (_React$Component6) {
   _inherits(AddOption, _React$Component6);
 
-  function AddOption() {
+  function AddOption(props) {
     _classCallCheck(this, AddOption);
 
-    return _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).apply(this, arguments));
+    var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+
+    _this6.handleSubmit = _this6.handleSubmit.bind(_this6);
+    return _this6;
   }
 
   _createClass(AddOption, [{
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
-      var option = e.target.elements.option.value.trim();
+      var option = e.target.elements.option.value;
       // trim() is to get rid of spaces if there are only spaces
       if (option) {
-        console.log('handleSubmit: this is option ', option);
+        this.props.handleAddOption(option);
       }
     }
   }, {
