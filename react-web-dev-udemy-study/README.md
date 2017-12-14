@@ -328,3 +328,13 @@ Header.defaultProps = {
 -   can take in prevProps or prevState
 -   componentWillUnmount = specify what happens when component will disappear
 -   Lifecycle Methods:
+
+### Saving and Loading Options Data
+
+-   use localStorage to store data
+-   localStorage stores data even after page refresh
+-   localStorage.setItem('key', 'value')  ==> store { key: 'value'}
+-   localStorage.getItem('key') => 'value'
+-   localStorage.removeItem('key') => undefined
+-   localStorage only works with string
+-   

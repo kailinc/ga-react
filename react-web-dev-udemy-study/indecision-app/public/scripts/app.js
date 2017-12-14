@@ -30,12 +30,23 @@ var IndecisionApp = function (_React$Component) {
   _createClass(IndecisionApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('fetching data');
+      try {
+        var json = localStorage.getItem('options');
+        var options = JSON.parse(json);
+        if (options) {
+          this.setState({
+            options: options
+          });
+        }
+      } catch (e) {}
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
-      console.log('saving data');
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+      }
     }
   }, {
     key: 'componentWillUnmount',
@@ -212,6 +223,7 @@ var AddOption = function (_React$Component2) {
       // trim() is to get rid of spaces if there are only spaces
       if (option) {
         this.props.handleAddOption(option);
+        e.target.elements.option.value = '';
       }
     }
   }, {
