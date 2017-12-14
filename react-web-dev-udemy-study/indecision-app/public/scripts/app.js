@@ -38,7 +38,7 @@ var IndecisionApp = function (_React$Component) {
             options: options
           });
         }
-      } catch (e) {}g;
+      } catch (e) {}
     }
   }, {
     key: 'componentDidUpdate',
