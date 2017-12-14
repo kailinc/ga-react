@@ -271,3 +271,26 @@ handleReset() {
 -   can't change props by itself
 -   state is defined in the component
 -   props comes from above
+
+
+### Stateless Functional Component
+
+
+-   This is for componenets that only rendering
+-   This component does not track state or has methods
+
+```js
+const User = (props) => {
+  return (
+    <div>
+      <h1>Name: { props.name } </h1>
+      <h1>Age: { props.age } </h1>
+    </div>
+  )
+};
+
+ReactDOM.render(
+  <User name="Kailin" age={ 22 }/>,
+  document.getElementById('app')
+)
+```
