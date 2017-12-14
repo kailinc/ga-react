@@ -351,3 +351,9 @@ Header.defaultProps = {
 -   we can break app into multiple files which can export/import from/to other files
 -   can grab dependencies
 -   webpack will run babel for us
+
+### Avoid Global Modules
+
+-   if collaborate with someone else, open source => other people don't know you
+-   are using that
+-
