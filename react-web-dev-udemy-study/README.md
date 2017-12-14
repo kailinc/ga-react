@@ -337,4 +337,5 @@ Header.defaultProps = {
 -   localStorage.getItem('key') => 'value'
 -   localStorage.removeItem('key') => undefined
 -   localStorage only works with string
--   
+
+### Saving and Loading the Count
