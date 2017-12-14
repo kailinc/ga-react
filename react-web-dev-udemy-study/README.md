@@ -319,3 +319,12 @@ Header.defaultProps = {
 ### React Dev Tool
 
 ### Removing Individual Options
+
+### Lifecycle Methods
+
+-   functional stateless component do not have lifecycle management
+-   componentDidMount = specify what happens when it renders the first time
+-   componentDidUpdate = specify what happens when component updated
+-   can take in prevProps or prevState
+-   componentWillUnmount = specify what happens when component will disappear
+-   Lifecycle Methods:
