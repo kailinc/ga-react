@@ -30,7 +30,7 @@ var Counter = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var counter = localStorage.getItem('counter');
-      counter = parseInt(counter);
+      counter = parseInt(counter, 10);
       this.setState({
         counter: counter
       });

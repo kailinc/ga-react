@@ -13,7 +13,7 @@ class Counter extends React.Component {
 
   componentDidMount() {
     let counter = localStorage.getItem('counter')
-    counter = parseInt(counter)
+    counter = parseInt(counter, 10)
     this.setState({
       counter
     })

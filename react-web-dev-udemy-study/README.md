@@ -339,3 +339,15 @@ Header.defaultProps = {
 -   localStorage only works with string
 
 ### Saving and Loading the Count
+
+## Section 6: Webpack
+
+### What is Webpack?
+
+-   allows you to org js
+-   bundle.js contains the dependencies and our js code
+-   this means there is only one script tag in your html
+-   this will increase your web performance
+-   we can break app into multiple files which can export/import from/to other files
+-   can grab dependencies
+-   webpack will run babel for us
