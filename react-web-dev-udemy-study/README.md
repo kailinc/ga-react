@@ -356,4 +356,5 @@ Header.defaultProps = {
 
 -   if collaborate with someone else, open source => other people don't know you
 -   are using that
--
+
+### Installing Webpack and Config

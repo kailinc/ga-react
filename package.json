@@ -9,6 +9,7 @@
   "private": false,
   "dependencies": {
     "babel-cli": "6.24.1",
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "webpack": "3.1.0"
   }
 }
