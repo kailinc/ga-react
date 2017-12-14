@@ -315,3 +315,5 @@ Header.defaultProps = {
   title: 'Title of the App'
 }
 ```
+
+### React Dev Tool
