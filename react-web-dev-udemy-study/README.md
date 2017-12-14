@@ -317,3 +317,5 @@ Header.defaultProps = {
 ```
 
 ### React Dev Tool
+
+### Removing Individual Options
