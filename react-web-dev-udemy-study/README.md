@@ -395,3 +395,11 @@ export default subtract;
 ```js
 export default (x,y) => x - y
 ```
+
+### Import NPM Modules
+
+-   depends on the docs
+```js
+// Syntax
+import validator from 'validator';
+```
