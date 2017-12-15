@@ -411,3 +411,24 @@ import validator from 'validator';
 -   webpack-dev-server will run the server and webpack
 -   does not need bundle.js
 -   specify options for webpack in webpack.config.js
+
+### ES6 Class Properties
+
+```js
+class OldSyntax {
+  constructor(name) {
+    this.name = name
+    this.getGreeting = this.getGreeting.bind(this)
+  }
+  getGreeting() {
+    return `Hi. My name is ${this.name}`
+  }
+}
+
+class newSyntax {
+  name = 'Jen'
+  getGreeting = () => {
+    return `Hi. My Name is ${this.name}`
+  }
+}
+```
