@@ -463,3 +463,5 @@ ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById(
 ## Section 8: Styling React
 
 ### Setting up Weback with CSS
+
+### Arch and Header Styles
