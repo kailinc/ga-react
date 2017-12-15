@@ -459,4 +459,7 @@ ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById(
 ### Using React Model
 
 -   install by using `yarn add react-modal`
--
+
+## Section 8: Styling React
+
+### Setting up Weback with CSS
