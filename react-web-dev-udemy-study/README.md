@@ -358,3 +358,40 @@ Header.defaultProps = {
 -   are using that
 
 ### Installing Webpack and Config
+
+### ES6 Import/Export
+
+-   set up by default in webpack
+
+### Default Exports
+
+-   there can only be 1 default export
+```js
+const square = (x) => x * x
+
+const add = (x,y) => x + y
+
+const subtract = (x,y) => x - y
+
+export { square, add, subtract as default }
+```
+
+-   import the default by having it outside the {}
+```js
+import subtract, { square, add } from './file.js';
+```
+-   it is named as the name listed after import
+-   default, naming is not important
+-   can export with adding export infront of the file
+```js
+export const square = (x) => x * x;
+```
+
+```js
+export default subtract;
+```
+
+-   can default export anynonmous functions
+```js
+export default (x,y) => x - y
+```
