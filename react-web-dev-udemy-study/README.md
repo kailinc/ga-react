@@ -405,3 +405,9 @@ import validator from 'validator';
 ```
 
 ### Source Maps with Webpack
+
+### Webpack Dev Server
+
+-   webpack-dev-server will run the server and webpack
+-   does not need bundle.js
+-   specify options for webpack in webpack.config.js
