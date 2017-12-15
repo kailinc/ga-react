@@ -456,4 +456,7 @@ const Layout = (props) => {
 ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById('app'));
 ```
 
-###
+### Using React Model
+
+-   install by using `yarn add react-modal`
+-
