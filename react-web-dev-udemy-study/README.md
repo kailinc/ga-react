@@ -414,6 +414,8 @@ import validator from 'validator';
 
 ### ES6 Class Properties
 
+-   using transform-class-properties from babel
+
 ```js
 class OldSyntax {
   constructor(name) {
@@ -432,3 +434,26 @@ class newSyntax {
   }
 }
 ```
+
+## Section 7: Using a Third Party Component
+
+### Passing Children to Component
+
+-   Can pass in html in a Component
+-   you access it with props.children
+
+```js
+const Layout = (props) => {
+  return (
+    <div>
+      <p>header</p>
+      { props.children }
+      <p>footer</p>
+    </div>
+  )
+}
+
+ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById('app'));
+```
+
+###
