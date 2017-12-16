@@ -525,4 +525,23 @@ devServer: {
 ```
 
 -   have to set props exact to be true
--   this will only serve the component with that path 
+-   this will only serve the component with that path
+
+### Setting up a 404
+
+-   Use Switch Component to set up a 404 page
+-   Switch will check for each path, if none matches it will show the Route with no path defined
+
+```js
+const routes = (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+      <Route path="/contacts" component={Contacts} />
+      <Route path="/edit" component={EditExpensePage} />
+      <Route path="/help" component={HelpPage} />
+      <Route component={ NotFoundPage }/>
+    </Switch>
+  </BrowserRouter>
+)
+```
