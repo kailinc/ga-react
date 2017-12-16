@@ -474,4 +474,55 @@ ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById(
 
 -   Using React Router, we set the configs for pages
 -   for each url, we define what component to render
--
+
+### React Router 101
+
+-   there react-router can be used for iOS, Andriod, and webapp
+-   react-router-dom, react-router-
+-   import components from 'react-router-dom'
+-   Route is where you define what component to render according to the path
+-   you pass in path and component to Route
+
+Example
+
+```js
+const ExpenseDashboardPage = () => (
+  <div>
+    DashBoard Component
+  </div>
+)
+
+const routes = (
+  <BrowserRouter>
+    <Route path="/" component={ExpenseDashboardPage} />
+  </BrowserRouter>
+)
+```
+
+-   BroswerRouter can only have 1 child inside it, so you put a div that wraps around
+    all the Route component
+```js
+const routes = (
+  <BrowserRouter>
+    <div>
+      <Route path="/" component={ExpenseDashboardPage} />
+      <Route path="/contacts" component={Contacts} />
+    </div>
+  </BrowserRouter>
+)
+```
+-   Have to go to webpack.config.js to set historyApiFallback to true
+-   this will make index.html page to be served if there is a fail
+-   Then react-router determines what page to serve up accoding to what you set in
+-   routes
+
+webpack.config.js
+```js
+devServer: {
+  contentBase: path.join(__dirname, 'public'),
+  historyApiFallback: true
+}
+```
+
+-   have to set props exact to be true
+-   this will only serve the component with that path 
