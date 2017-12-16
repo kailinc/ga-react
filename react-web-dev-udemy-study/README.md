@@ -560,5 +560,9 @@ const routes = (
 
 -   React Router actually passes down some props to router that we can use
 ```js
-history 
+history
 ```
+
+## Section 9: Redux
+
+### Why do we need something like Redux?
