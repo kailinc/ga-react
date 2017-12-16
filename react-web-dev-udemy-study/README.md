@@ -545,3 +545,13 @@ const routes = (
   </BrowserRouter>
 )
 ```
+
+### Linking between Routes
+
+-   Use <Link to="path"></Link> to redirect user to the path defined
+-   It is like an anchor tag to redirect user and change the url
+-   It will not refresh the page, it just swaps out
+-   <NavLink /> is the same as link but you should use it for navigation links because it supports it better
+-    NavLink has the prop activeClassName, this will apply the className you provide when the user is on the page
+-   This will apply the css of the className you provide
+- 
