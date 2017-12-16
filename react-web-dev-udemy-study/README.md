@@ -554,4 +554,11 @@ const routes = (
 -   <NavLink /> is the same as link but you should use it for navigation links because it supports it better
 -    NavLink has the prop activeClassName, this will apply the className you provide when the user is on the page
 -   This will apply the css of the className you provide
-- 
+
+
+### Query Strings and URl Parameters
+
+-   React Router actually passes down some props to router that we can use
+```js
+history 
+```
