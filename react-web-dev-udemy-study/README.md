@@ -467,3 +467,11 @@ ReactDOM.render(<Layout><p>This is inLine</p></Layout>, document.getElementById(
 ### Arch and Header Styles
 
 ### Reset that $#!T
+
+## Section 9: React Router
+
+### Server vs Client Routing
+
+-   Using React Router, we set the configs for pages
+-   for each url, we define what component to render
+-
