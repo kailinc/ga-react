@@ -571,4 +571,8 @@ history
 -   this makes a store
 -   store.getState() gets the state of the store
 -   pass function in createStore, this function will run once
--
+
+### Dispatching State
+
+-   action - an obj that gets sent to the store
+-   
