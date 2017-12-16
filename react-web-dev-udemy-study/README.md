@@ -566,3 +566,9 @@ history
 ## Section 9: Redux
 
 ### Why do we need something like Redux?
+
+-   createStore is from redux
+-   this makes a store
+-   store.getState() gets the state of the store
+-   pass function in createStore, this function will run once
+-
