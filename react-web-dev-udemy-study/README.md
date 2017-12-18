@@ -651,3 +651,10 @@ const [,, state = 'New York'] = address;
 ```
 
 ### Action Generator
+
+### Reducer
+
+-   reducers are pure function
+-   output is determined by input
+-   never change state or action
+-   s
