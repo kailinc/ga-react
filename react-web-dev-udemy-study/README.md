@@ -649,3 +649,5 @@ const [,city,state,zipCode] = address;
 ```js
 const [,, state = 'New York'] = address;
 ```
+
+### Action Generator
