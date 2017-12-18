@@ -575,4 +575,7 @@ history
 ### Dispatching State
 
 -   action - an obj that gets sent to the store
--   
+
+### Subscribe State
+
+-   Use store.subscribe( callback) will callback the function if store changes
