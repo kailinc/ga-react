@@ -10,6 +10,15 @@ const decrementCount = ({decrementCount = 1} = {}) => ({
   decrementBy
 })
 
+const setCount = ({ count }) => ({
+  type: 'SET',
+  count
+})
+
+const resetCount = () => ({
+  type: 'RESET'
+})
+
 const store = createStore((state = { count: 0 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -23,6 +32,10 @@ const store = createStore((state = { count: 0 }, action) => {
     case 'RESET':
       return {
         count: 0
+      }
+    case 'SET':
+      return {
+        count: action.count
       }
     default:
         return state;
