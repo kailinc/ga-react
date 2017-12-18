@@ -627,3 +627,25 @@ const { city: homeCity, temp } = person;
 ```js
 const { city = 'Chiang Mai', temp}
 ```
+
+### Array Destructuring
+
+```js
+const address = ['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147'];
+
+const [streetName, city, state, zipCode ] = address
+
+console.log(`You are in ${address[1]} ${address[2]}`)
+console.log(`You are in ${streetName} ${city}`)
+```
+-   matches it by the order in the array
+-   skip the order by using ,
+
+```js
+const [,city,state,zipCode] = address;
+```
+
+-   can set defaults
+```js
+const [,, state = 'New York'] = address;
+```
