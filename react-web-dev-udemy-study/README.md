@@ -579,3 +579,51 @@ history
 ### Subscribe State
 
 -   Use store.subscribe( callback) will callback the function if store changes
+
+### ES6 Object Destructuring
+
+```js
+const person = {
+  name: 'Andrew',
+  age: 26,
+  location: {
+    city: 'Philadelphia',
+    temp: 92
+  }
+}
+
+const { name, age } = person;
+
+console.log(`${name} is ${age}.`)
+```
+
+-   within `const { name, age } = person`
+-   It creates 2 variables (name, age) and set it to the value of person.name and person.age
+-   This is new feature of ES6
+-   can do it with nested objects
+
+```js
+const person = {
+  name: 'Andrew',
+  age: 26,
+  location: {
+    city: 'Philadelphia',
+    temp: 92
+  }
+}
+
+const { city, temp } = person.location;
+
+console.log(`${city} is ${temp}.`)
+
+```
+
+-   rename variables
+```js
+const { city: homeCity, temp } = person;
+```
+
+-   set defaults
+```js
+const { city = 'Chiang Mai', temp}
+```
