@@ -691,4 +691,8 @@ console.log(array) // ['apple', 'banana', 'orange']
 }
 ```
 -   can overide properties
--   use the same was as we used on array 
+-   use the same was as we used on array
+
+## Section 10: Connecting React and Redux
+
+### Organizing Redux
