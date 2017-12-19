@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ExpenseList from './ExpenseList';
 
-const ExpenseDashboardPage = (props) => {
-  return (
-    <div>
-      Expense Dash Board
-    </div>
-  )
-}
+const ExpenseDashboardPage = () => (
+  <div>
+    <ExpenseList />
+  </div>
+);
 
 export default ExpenseDashboardPage;
