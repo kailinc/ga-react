@@ -696,3 +696,8 @@ console.log(array) // ['apple', 'banana', 'orange']
 ## Section 10: Connecting React and Redux
 
 ### Organizing Redux
+
+### Higher Order Components
+
+-   definition: Component that renders another component
+-   
