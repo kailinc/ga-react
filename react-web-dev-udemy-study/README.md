@@ -671,3 +671,24 @@ console.log(array) // ['apple', 'banana', 'orange']
 -   This will not change the Array
 -   It acts like array.prototype.concat(string)
 -   where you put the 'string' will determine which direction it is added
+
+### Spread Operator with Objects
+
+-    same way to use but you need to install a plugin in babel
+-    installation:
+      1.`yarn add babel-plugin-transform-object-rest-spread`
+      2. modify .babelrc
+```js
+{
+  "presets": [
+  "env",
+  "react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}
+```
+-   can overide properties
+-   use the same was as we used on array 
