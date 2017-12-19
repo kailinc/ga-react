@@ -657,4 +657,5 @@ const [,, state = 'New York'] = address;
 -   reducers are pure function
 -   output is determined by input
 -   never change state or action
--   s
+
+### Working with Multiple reducers
