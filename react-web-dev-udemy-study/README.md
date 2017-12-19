@@ -659,3 +659,15 @@ const [,, state = 'New York'] = address;
 -   never change state or action
 
 ### Working with Multiple reducers
+
+### ES6 Spread Operator
+
+-   Syntax:
+```js
+const array = ['apple', 'banana', 'orange']
+[...array, 'String', 'To', 'Add'] // ['apple', 'banana', 'orange', 'String', 'To', 'Add']
+console.log(array) // ['apple', 'banana', 'orange']
+```
+-   This will not change the Array
+-   It acts like array.prototype.concat(string)
+-   where you put the 'string' will determine which direction it is added
