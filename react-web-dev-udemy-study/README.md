@@ -701,4 +701,8 @@ console.log(array) // ['apple', 'banana', 'orange']
 
 -   definition: Component that renders another component
 
-###
+### Date Picker
+
+-   Moment.js is library for dealing with dates and times
+-   Airbnb react-dates is for letting you have a calender picker
+-   react-addons-shallow-compare is to use with react-dates
