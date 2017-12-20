@@ -700,3 +700,5 @@ console.log(array) // ['apple', 'banana', 'orange']
 ### Higher Order Components
 
 -   definition: Component that renders another component
+
+###
